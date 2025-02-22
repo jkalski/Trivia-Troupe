@@ -1,0 +1,85 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #FDFD96;
+}
+
+form, label, input, button {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    border-radius: 25px;    
+}
+
+form {
+    height: 300px;
+    width: 500px;
+    box-sizing: border-box;
+}
+
+label {
+    font-size: 20px;
+    margin: 10px;
+}
+
+input {
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+button {
+    position: relative;
+    background-color: lightblue;
+    margin: 10px;
+    padding: 10px;
+    padding-left: 30px;
+    padding-right: 30px;
+    font-size: 16px;
+}
+
+#formWrapper {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.inputGroup {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    background-color: white;
+}
+
+#formWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: white;
+    border-radius: 25px;
+    box-shadow: 10px 5px 5px grey;
+}
+
+.create-account {
+    display: inline-flex;
+    justify-content: space-between;
+}
+
+.create-account-text {
+    padding-right: 10px;
+}
+
+#create-account-button {
+    background: none;
+    border: none;
+    margin: 0;
+    padding: 0;
+    cursor: pointer;
+    color: blue;
+}
