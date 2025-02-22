@@ -6,7 +6,7 @@
 body {
     background-color: #FDFD96;
 }
-
+/* Form styling*/
 form, label, input, button {
     display: flex;
     flex-direction: column;
@@ -14,6 +14,8 @@ form, label, input, button {
     align-items: center;
     background-color: white;
     border-radius: 25px;    
+    max-width: 100%;
+    max-height: 100%;
 }
 
 form {
@@ -40,13 +42,7 @@ button {
     padding-left: 30px;
     padding-right: 30px;
     font-size: 16px;
-}
-
-#formWrapper {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    cursor: pointer;
 }
 
 .inputGroup {
@@ -56,7 +52,7 @@ button {
     background-color: white;
 }
 
-#formWrapper {
+#login-form-wrapper {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -64,11 +60,17 @@ button {
     background-color: white;
     border-radius: 25px;
     box-shadow: 10px 5px 5px grey;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-height: 100%;
 }
 
 .create-account {
     display: inline-flex;
-    justify-content: space-between;
+    justify-content: center;
+    width: 100%;
 }
 
 .create-account-text {
@@ -80,6 +82,53 @@ button {
     border: none;
     margin: 0;
     padding: 0;
-    cursor: pointer;
     color: blue;
+}
+
+/* Modal Form Styling*/
+.modalContainer {
+    background: rgba(0, 0, 0, 0.2);
+    height: 100vh;
+    width: 100vw;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.modalContainer.show{
+    opacity: 1;
+    ;pointer-events: auto;
+}
+
+#signup-form-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 10px 5px 5px #878787;
+    border-radius: 25px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.signupForm {
+    padding: 10px;
+    height: 100%;
+}
+
+.signup-form-header-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.x-btn {
+    position: absolute;
+    display: flex;
+    top: 0;
+    right: 0;
+    margin: 2px;
+    font-size: 20px;
+    cursor: pointer;
 }
