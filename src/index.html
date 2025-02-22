@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trivia Troupe</title>
+</head>
+<script src="./scripts/app.js"></script>
+<link rel="stylesheet" href="./styles/style.css">
+<body>
+        <div id="formWrapper">
+            <form class="loginForm">
+                <div class="inputGroup">
+                    <label for="Username">Enter Username:</label>
+                    <input type="text" id="Username" name="Username" placeholder="Username" required>
+                    <span id="usernameError"></span>
+                </div>
+                <div class="inputGroup">
+                    <label for="Password">Enter Password:</label>
+                    <input type="password" id="Password" name="Password" placeholder="Password" required>
+                    <span id="passwordError"></span>
+                </div>
+                <button type="submit" id="loginButton">Login</button>
+            </form>
+            <div class="create-account">
+                <p class="create-account-text">Don't have an account?</p> 
+                <button id="create-account-button"> Create an account</button>
+            </div>
+        </div>
+
+</body>
+</html>
