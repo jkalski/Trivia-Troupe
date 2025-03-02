@@ -1,0 +1,32 @@
+body {
+    background-color: #FDFD96;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+}
+
+.category-container {
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+}
+
+button {
+    background: #E34234;
+    border: none;
+    color: white;
+    padding: 40px;
+    border-radius: 10px;
+    font-size: 32px;
+    cursor: pointer;
+}
