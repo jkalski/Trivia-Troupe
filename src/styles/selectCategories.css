@@ -2,8 +2,12 @@ body {
     background-color: #FDFD96;
 }
 
-li {
-    list-style-type: none;
+ul {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 0;
 }
 
 .container {
