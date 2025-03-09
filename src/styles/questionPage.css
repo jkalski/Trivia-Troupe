@@ -15,6 +15,10 @@ ul {
     padding: 0;
 }
 
+div {
+    margin: 20px;
+}
+
 button {
     cursor: pointer;
     border: none;
@@ -24,8 +28,15 @@ button {
 
 .header-container {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
+    margin: 0;
+}
+
+.header-container > div {
+    font-size: 24px;
+    font-weight: bold;
+    color: #228B22;
 }
 
 .container {
@@ -38,19 +49,62 @@ button {
 .question {
     display: flex;
     justify-content: center;
+    font-size: 48px;
+    font-weight: bold;
+    text-decoration: underline;
 }
 
-.progessbar-timer {
+.progressbar-timer {
+    display: flex;
+    position: relative;
+    width: 50%;
+}
+
+.progress-container {
     width: 100%;
+    height: 100%;
+    border-top: 3px dashed black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .slider {
+    position: absolute;
+    top: -4px;
+    right: 0;
     height: 8px;
     width: 8px;
     background-color: black;
 }
 
-
 .answer-container {
     width: 80%;
+}
+
+.answer-container > ul > button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    font-size: 18px;
+    font-weight: bold;
+    margin: 10px;
+    border-radius: 10px;
+}
+
+.answer1 {
+    background-color: #FFD700;
+}
+
+.answer2 {
+    background-color: #E46F6F;
+}
+
+.answer3 {
+    background-color: orange;
+}
+
+.answer4 {
+    background-color: white;
 }
