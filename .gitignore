@@ -1,0 +1,27 @@
+# Ignore Python virtual environment
+backend/venv/
+venv/
+
+
+# Byte-compiled / intermediate files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Ignore environment files
+.env
+*.env
+
+# Ignore log files and system files
+*.log
+*.sqlite3
+
+# Ignore IDE/editor settings
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+
+# Ignore dependencies
+node_modules/
