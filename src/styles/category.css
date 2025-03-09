@@ -5,8 +5,10 @@ body {
 button {
     cursor: pointer;
     padding: 10px;
+    font-weight: bold;
 }
 
+/*Container to keep Buttons in middle of screen*/
 .category-container {
     display: flex;
     justify-content: center;
@@ -17,14 +19,16 @@ button {
     left: 50%;
     transform: translate(-50%, -50%);
     max-height: 100%;
-    width: 60%;
+    width: 50%;
 }
 
-.tutorial {
+/* Affects Spacing of each button*/
+.category-container > div {
     padding: 40px;
     width: 100%;
 }
 
+/*Button Specific Styling */
 .tutorial-btn {
     background: #B3EBF2;
     border: none;
@@ -33,22 +37,12 @@ button {
     font-size: 48px;
 }
 
-.category-select {
-    padding: 40px;
-    width: 100%;
-}
-
 .category-select-btn {
     background: #77DD77;
     border: none;
     width: 100%;
     text-align: start;
     font-size: 48px;
-}
-
-.history {
-    padding: 40px;
-    width: 100%;
 }
 
 .history-btn {
