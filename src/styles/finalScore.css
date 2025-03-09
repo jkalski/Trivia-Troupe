@@ -1,0 +1,39 @@
+body {
+    background-color: #FDFD96;
+    display: flex;
+    justify-content: starts;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+    margin: 0;
+}
+
+
+/*Centers the Final Score ~ 1/4 from the Top */
+.finalScore {
+    margin-top: 25vh;
+    margin-bottom: 50px;
+    font-size: 2rem;
+    font-weight: bold;
+    font-size: 64px;
+}
+
+
+/* Table Styling */
+.score-table {
+    margin-top: 30px;
+    width: 60%;
+    border-collapse: collapse;
+    text-align: center;
+
+}
+
+th {
+    background-color: white;
+    font-size: 36px;
+}
+
+td {
+    background-color: #D3D3D3;
+    font-size: 36px;
+}
