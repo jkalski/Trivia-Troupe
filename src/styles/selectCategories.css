@@ -2,6 +2,10 @@ body {
     background-color: #FDFD96;
 }
 
+li {
+    list-style-type: none;
+}
+
 .container {
     display: flex;
     justify-content: center;
