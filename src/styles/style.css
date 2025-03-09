@@ -52,6 +52,7 @@ button {
     background-color: white;
 }
 
+/* Login Form Styling */
 #login-form-wrapper {
     display: flex;
     justify-content: center;
@@ -64,7 +65,13 @@ button {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    height: 40%;
     max-height: 100%;
+}
+
+/* Ensures this is hidden when signup form is opened */
+#login-form-wrapper.hidden {
+    opacity: 0;
 }
 
 .create-account {
@@ -85,7 +92,7 @@ button {
     color: blue;
 }
 
-/* Modal Form Styling*/
+/* Sign Up Form Styling*/
 .modalContainer {
     background: rgba(0, 0, 0, 0.2);
     height: 100vh;
