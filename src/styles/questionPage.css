@@ -26,6 +26,7 @@ button {
     padding: 20px 0px 20px 0px;
 }
 
+/* Timer & Score Styling */
 .header-container {
     display: flex;
     justify-content: space-between;
@@ -39,6 +40,7 @@ button {
     color: #228B22;
 }
 
+/* Question + Countdown Timer + Answer Choices Styling */
 .container {
     display: flex;
     justify-content: center;
