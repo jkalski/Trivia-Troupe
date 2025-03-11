@@ -45,6 +45,12 @@ button {
     cursor: pointer;
 }
 
+p {
+    display: flex;
+    justify-content: center;
+    color: red;
+}
+
 .inputGroup {
     display: flex;
     justify-content: center;
@@ -118,7 +124,7 @@ button {
     transform: translate(-50%, -50%);
 }
 
-.signupForm {
+#signupForm {
     padding: 10px;
     height: 100%;
 }
@@ -138,4 +144,9 @@ button {
     margin: 2px;
     font-size: 20px;
     cursor: pointer;
+}
+
+input.incorrect {
+    border-color: red;
+    border-radius: 20px;
 }
