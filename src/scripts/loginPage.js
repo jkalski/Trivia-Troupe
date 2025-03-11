@@ -8,11 +8,15 @@ let xButton = document.getElementById("x-btn");
 const loginForm = document.getElementsByClassName("loginForm");
 
 
-const signUpForm = document.getElementsByClassName("signupForm");
-const signUpEmail = document.getElementById("Email");
-const signUpUsername = document.getElementById("Signup-Username");
-const signUpPassword = document.getElementById("Signup-Password");
-const signUpConfirmPassword = document.getElementById("RepeatPassword");
+const signUpForm = document.getElementById("signupForm");
+const signUpEmail = document.getElementById("SignUpEmail");
+const signUpUsername = document.getElementById("SignUpUsername");
+const signUpPassword = document.getElementById("SignUpPassword");
+const signUpRepeatPassword = document.getElementById("SignUpRepeatPassword");
+let signUpUsernameError = document.getElementById('SignUpUsernameError');
+let signUpEmailError = document.getElementById('SignUpEmailError');
+let signUpPasswordError = document.getElementById('SignUpPasswordError');
+let signUpRepeatPasswordError = document.getElementById('SignUpRepeatPasswordError');
 
 // Show/Hide Sign-Up Form/Login Form
 signUpContainer.addEventListener("click", function() {
@@ -23,43 +27,80 @@ signUpContainer.addEventListener("click", function() {
 xButton.addEventListener("click", function() {
     modalContainer.classList.remove('show');
     loginContainer.classList.remove('hidden');
+    clearAllErrors();
 });
 
 // Establishing Sign-Up Form Functionality
-signUpForm.addEventListener('submit', (e) => {
+signUpForm.addEventListener("submit", (e) => {
     //Prevents the submit action to refresh page
     e.preventDefault();
 
-    //Error Checking
-    let errors = [];
-
-    errors = getSignUpErrors(signUpUsername.value, signUpEmail.value, signUpPassword.value, signUpConfirmPassword.value);
+    //Error checking
+    if (getSignUpErrors(signUpUsername.value, signUpEmail.value, signUpPassword.value, signUpRepeatPassword.value)) {
+        e.preventDefault();
+    }
 })
 
-
 function getSignUpErrors (username, email, password, passwordConfirm) {
-    let errors = [];
 
     if (username === '' || username == null) {
-        errors.push('Username is required');
-        //Here we add a class to identify that there is an error
+        signUpUsernameError.textContent = "Username is Required"; 
+        //Here we add a class to highlight the error
+        signUpUsername.classList.add('incorrect');
+
     }
     if (email === '' || email == null) {
-        errors.push('Email is required');
-        //Add same class
+        signUpEmailError.textContent = "Email is Required";
+        //Here we add a class to highlight the error
+        signUpEmail.classList.add('incorrect');
     }
     if (password === '' || password == null) {
-        errors.push('Password is Required');
-        //Add class
+        signUpPasswordError.textContent = "Password is Required";
+        //Here we add a class to highlight the error
+        signUpPassword.classList.add('incorrect');
     }
     if (passwordConfirm === '' || passwordConfirm == null) {
-        errors.push ('Please confirm password');
-        //Add class
+        signUpRepeatPasswordError.textContent = "Please Confirm Password";
+        //Here we add a class to highlight the error
+        signUpRepeatPassword.classList.add('incorrect');
     }
     else if (passwordConfirm !== password) {
-        errors.push ('Passwords were not the same');
-        //add class
+        signUpRepeatPasswordError.textContent = "Password was not the same";
+        //Here we add a class to highlight the error
+        signUpRepeatPassword.classList.add('incorrect');
     }
+}
 
-    return errors;
+//Function to clear errors as someone types
+function attachInputListeners() {
+    const signUpallInputs = [signUpUsername, signUpEmail, signUpPassword ,signUpRepeatPassword]
+
+    signUpallInputs.forEach(input => {
+        input.addEventListener('input', () => clearInputError(input));
+    })
+}
+
+attachInputListeners();
+
+//Helper Function
+function clearInputError(input) {
+    if (input.classList.contains('incorrect')) {
+        input.classList.remove('incorrect');
+
+        //Find the sibling p element and clear the text
+        const errorMessage = document.getElementById(input.id + "Error");
+        if(errorMessage) {
+        errorMessage.textContent = ''; //Clear the error message
+        }
+    }
+}
+
+//Function when you close the signup form
+function clearAllErrors() {
+    const signUpallInputs = [signUpUsername, signUpEmail, signUpPassword ,signUpRepeatPassword]
+
+    signUpallInputs.forEach(input => {
+        input.value = '';
+    });
+    signUpallInputs.forEach(clearInputError);
 }
