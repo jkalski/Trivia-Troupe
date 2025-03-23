@@ -41,7 +41,14 @@ sample_questions = [
         "options": ["Atlantic Ocean", "Indian Ocean", "Arctic Ocean", "Pacific Ocean"],
         "correct_answer": "Pacific Ocean",
         "category": "Geography"
-    }
+    },
+    #Actual Questions
+    {
+        "question": "What is 2+2?",
+        "options": ["1", "2", "3", "4"],
+        "correct_answer": "4",
+        "category": "Math"
+    },
 ]
 
 # check if questions already exist to avoid duplicates

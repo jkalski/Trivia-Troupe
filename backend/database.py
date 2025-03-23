@@ -1,28 +1,24 @@
 import os
-import pymongo
 from dotenv import load_dotenv
+from pymongo import MongoClient
 
-# Ensure .env file is loaded correctly
-load_dotenv(dotenv_path="../.env")  
+# Load environment variables
+load_dotenv()
 
-# Read mongo URI from .env
+# Get MongoDB URI from .env file
 MONGO_URI = os.getenv("MONGO_URI")
 
-if not MONGO_URI:
-    print(" Error: MONGO_URI not found in .env file")
-    exit(1)
+# Connect to MongoDB
+client = MongoClient(MONGO_URI)
+db = client["trivia_db"]  # Explicitly specify the database name
 
+# Collections
+questions_collection = db["questions"]
+users_collection = db["users"]
+
+# Test connection
 try:
-    # Create mongo client
-    client = pymongo.MongoClient(MONGO_URI)
-
-    # Selects the database
-    db = client["trivia_db"]  
-
-    # Test duh connection
-    client.admin.command("ping")  
-    print(" Successfully connected to MongoDB Atlas!")
-
+    client.admin.command('ping')  
+    print("Connected to MongoDB successfully!")
 except Exception as e:
-    print(f" MongoDB Connection Error: {e}")
-    db = None  
+    print(f"MongoDB Connection Error: {e}")
