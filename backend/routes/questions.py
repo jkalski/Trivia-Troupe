@@ -8,7 +8,7 @@ load_dotenv()
 
 question_routes = Blueprint('question_routes', __name__)
 
-# Get MongoDB URI from environment variables
+# Get mongo from environment variables
 MONGO_URI = os.getenv("MONGO_URI")
 client = MongoClient(MONGO_URI) 
 db = client["trivia_db"]
