@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./scripts/loginPage.js" defer></script>
+    <link rel="stylesheet" href="./styles/style.css">
+    <title>Trivia Troupe</title>
+</head>
+<body>
+    <!--Login Form Start-->
+    <div class="loginContainer">
+        <div id="login-form-wrapper">
+            <form class="loginForm">
+                <div class="formHeader">
+                    <h1>Login Trivia Troupe</h1>
+                </div>
+                <div class="inputGroup">
+                    <label for="Username">Enter Username:</label>
+                    <input type="text" id="login-Username" name="Username" placeholder="Username" required>
+                    <p id="loginUsernameError"></p>
+                </div>
+                <div class="inputGroup">
+                    <label for="Password">Enter Password:</label>
+                    <input type="password" id="login-Password" name="Password" placeholder="Password" required>
+                    <p id="loginPasswordError"></p>
+                </div>
+                <button type="submit" id="loginButton">Login</button>
+            </form>
+            <!--Sign Up Button-->
+            <div class="create-account">
+                <p class="create-account-text">Don't have an account?</p> 
+                <button type="button" id="create-account-button"> Sign Up</button>
+            </div>
+        </div>
+    </div>
+     <!--Sign Up Modal-->
+     <div class="modalContainer" id="modalContainer">
+        <div id="signup-form-wrapper">
+            <form id="signupForm">
+                <div class="signup-form-header-container">
+                    <h1 class="formHeader">Sign Up</h1>
+                    <div class="x-btn" id="x-btn">&times</div>
+                </div>
+                <div class="inputGroup">
+                    <label for="email">Enter an Email address</label>
+                    <input type="email" id="SignUpEmail" name="Email" placeholder="Email Address">
+                    <p id="SignUpEmailError"></p>
+                </div>
+                <div class="inputGroup">
+                    <label for="Username">Enter a Username:</label>
+                    <input type="text" id="SignUpUsername" name="Username" placeholder="Username">
+                    <p id="SignUpUsernameError"></p>
+                </div>
+                <div class="inputGroup">
+                    <label for="Password">Enter Password:</label>
+                    <input type="password" id="SignUpPassword" name="Password" placeholder="Password">
+                    <p id="SignUpPasswordError"></p>
+                </div>
+                <div class="inputGroup">
+                    <label for="password">Confirm Password:</label>
+                    <input type="password" name="repeatPassword" id="SignUpRepeatPassword" placeholder="Confirm Password">
+                    <p id="SignUpRepeatPasswordError"></p>
+                </div>
+
+                <button type="submit">Sign Up</button>
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>

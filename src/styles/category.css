@@ -1,0 +1,54 @@
+body {
+    background-color: #FDFD96;
+}
+
+button {
+    cursor: pointer;
+    padding: 10px;
+    font-weight: bold;
+}
+
+/*Container to keep Buttons in middle of screen*/
+.category-container {
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    flex-direction: column;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-height: 100%;
+    width: 50%;
+}
+
+/* Affects Spacing of each button*/
+.category-container > div {
+    padding: 40px;
+    width: 100%;
+}
+
+/*Button Specific Styling */
+.tutorial-btn {
+    background: #B3EBF2;
+    border: none;
+    width: 100%;
+    text-align: start;
+    font-size: 48px;
+}
+
+.category-select-btn {
+    background: #77DD77;
+    border: none;
+    width: 100%;
+    text-align: start;
+    font-size: 48px;
+}
+
+.history-btn {
+    background:#FFD1DC;
+    border: none;
+    width: 100%;
+    text-align: start;
+    font-size: 48px;
+}
