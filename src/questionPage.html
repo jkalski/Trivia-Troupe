@@ -3,28 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./scripts/app.js" defer></script>
     <link rel="stylesheet" href="./styles/questionPage.css">
     <title>Trivia Troupe</title>
 </head>
-<body>
+<body onload="startStopwatch()" >
     <div class="header-container">
-        <div class="timer">Timer: 00:00</div>
-        <div class="score">Score: 0000</div>
+        <div class="timer">Timer: <span id="stopwatch"></span></div>
+        <div class="score">Score: <span id="score">0000</span></div>
     </div>
     <div class="container">
-        <div class="question">
-            What is 2 + 2?
+        <div id="question" class="question">
+            
         </div>
+        <button id="startGameButton" onclick="fetchQA()"> Start Game</button>
         <div class="progressbar-timer">
             <div class="progress-container"></div>
             <div class="slider"></div>
         </div>
         <div class="answer-container">
-            <ul>
-                <button class="answer1">Answer 1</button>
-                <button class="answer2">Answer 2</button>
-                <button class="answer3">Answer 3</button>
-                <button class="answer4">Answer 4</button>
+            <ul id="answer-container">
+
             </ul>
         </div>
     </div>

@@ -60,15 +60,14 @@ button {
     display: flex;
     position: relative;
     width: 50%;
+    overflow: hidden;
 }
 
 .progress-container {
     width: 100%;
     height: 100%;
     border-top: 3px dashed black;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    transition: width linear;
 }
 
 .slider {
@@ -95,18 +94,18 @@ button {
     border-radius: 10px;
 }
 
-.answer1 {
+#answer-container :nth-child(1), .answer1 {
     background-color: #FFD700;
 }
 
-.answer2 {
+#answer-container :nth-child(2), .answer2 {
     background-color: #E46F6F;
 }
 
-.answer3 {
+#answer-container :nth-child(3), .answer3 {
     background-color: orange;
 }
 
-.answer4 {
+#answer-container :nth-child(4), .answer4 {
     background-color: white;
-}
+} 

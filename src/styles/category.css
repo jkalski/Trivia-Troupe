@@ -92,3 +92,99 @@ button {
 .history-btn:hover {
     border-color: red; /* Changes border color to red on hover */
 }
+
+/* Tutorial Box */
+.tutorial-box {
+    position: relative;
+    width: 300px;
+    text-align: center;
+    display: none; /* Initially hidden */
+    padding: 120px;
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    background-color: white;
+    z-index: 10;
+
+}
+
+.arrow {
+    width: 0;
+    height: 0;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+    position: relative;
+    top: -20px;
+}
+
+.arrow-top {
+    border-bottom: 20px solid black;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.arrow-left {
+    border-right: 20px solid black;
+    left: -20px;
+    top: 300px;
+    transform: translateY(-50%);
+}
+
+.arrow-right {
+    border-left: 20px solid black;
+    right: -20px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* Next Button Styling */
+.next-btn {
+    padding: 10px 20px;
+    background-color: #B3EBF2;
+    border: 2px solid black;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 100%;
+    text-align: center;
+}
+
+.next-btn:hover {
+    background-color: #77DD77;
+}
+
+/* Positioning Tutorial Boxes Near Category Container */
+
+
+.tutorial-box:nth-child(1) {
+    top: -150px; /* First box positioned above the category container */
+    left: 50%; /* Centered horizontally */
+    transform: translateX(-50%);
+}
+
+.tutorial-box:nth-child(2) {
+    top: 300px; /* Positioned just below the first box */
+    left: 200px; /* Positioned to the left of the History button */
+}
+
+.tutorial-box:nth-child(3) {
+    top: 150px; /* Positioned at the same vertical level as the second box */
+    right: -1150px; /* Positioned to the right of the Category Select button */
+}
+
+/* Floating animation */
+@keyframes float {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-5px); /* Move up */
+    }
+    100% {
+        transform: translateY(0); /* Return to the original position */
+    }
+}
+
+/* Apply the floating animation to the buttons */
+.tutorial-btn, .category-select-btn, .history-btn {
+    animation: float 2s ease-in-out infinite; /* Floating effect every 2 seconds */
+}

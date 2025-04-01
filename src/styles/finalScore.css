@@ -37,3 +37,13 @@ td {
     background-color: #D3D3D3;
     font-size: 36px;
 }
+
+
+/* For Button */
+#returnHome {
+    margin-top: 1rem;
+    border-radius: 5px;
+    padding: 0.5rem;
+    background-color: lightblue;
+    color: orangered;
+}

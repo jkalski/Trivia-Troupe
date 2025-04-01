@@ -3,26 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="./scripts/selectCategories.js" defer></script>
-    <link rel="stylesheet" href="./styles/selectCategories.css">
+    <script src="./scripts/mainScreen.js" defer></script>
+    <link rel="stylesheet" href="./styles/mainScreen.css">
     <title>Trivia Troupe</title>
 </head>
 <body>
     <div class="container">
-        <h1>Please Select a Category</h1>
+        <h1>Select a Category</h1>
             <div class="category-container">
                 <ul>
                     <div class="category">
-                        <button>Category 1</button>
+                        <button onclick="startGame('Math')">Math</button>
                     </div>
                     <div class="category">
-                        <button>Category 2</button>
+                        <button onclick="startGame('Science')">Science</button>
                     </div>
                     <div class="category">
-                        <button>Category 3</button>
+                        <button onclick="startGame('Bio')">Pop Culture</button>
                     </div>
                     <div class="category">
-                        <button>Category 4</button>
+                        <button onclick="startGame('History')">History</button>
                     </div>
                 </ul>
         </div>
