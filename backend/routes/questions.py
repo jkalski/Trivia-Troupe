@@ -2,6 +2,7 @@ from flask import Blueprint, jsonify
 from pymongo import MongoClient
 from dotenv import load_dotenv
 import os
+from flask import Blueprint, jsonify, request
 
 
 load_dotenv()
@@ -16,6 +17,11 @@ questions_collection = db["questions"]
 
 @question_routes.route('/questions', methods=['GET'])
 def get_questions():
-    #get optional 
-    questions = list(questions_collection.find({}, {"_id": 0}))  # Fetch questions, exclude MongoDB _id field
+    category = request.args.get('category')
+
+    if category:
+        questions = list(questions_collection.find({"category": category}, {"_id": 0}))
+    else:
+        questions = list(questions_collection.find({}, {"_id": 0})) 
+
     return jsonify(questions)
