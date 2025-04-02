@@ -1,33 +1,34 @@
 // load database,
 let questions = [];
 
-fetch("temp_db/staticdb.json") // will fecth from Mongodb once set up
+fetch("http://127.0.0.1:5000/questions")
     .then((response) => {
-        if(!response.ok) {
+        if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
         return response.json();
     })
     .then((data) => {
-        questions = data.questions;
-        console.log("Questions data loaded:", questions);
+        questions = data;
+        console.log("Questions data loaded from backend:", questions);
     })
-    .catch((error) => console.error("Error loading questions data:", error));
+    .catch((error) => console.error("Error loading questions from backend:", error));
+
 
 //  stopwatch starts. 
-function startStopwatch(){
+function startStopwatch() {
     const stopwatch = document.getElementById("stopwatch");
     let counter = 0;
     let countup;
-    countup = setInterval(()=>{
-        let minutes = Math.floor(counter/60000); // Converts milliseconds to minutes
+    countup = setInterval(() => {
+        let minutes = Math.floor(counter / 60000); // Converts milliseconds to minutes
         let seconds = Math.floor(counter % 60000 / 1000); // Get remainder in seconds
         let milliseconds = Math.floor((counter % 1000) / 10); //Get two-digit milliseconds
 
         // Format display
-        let formattedTime = 
-        `${minutes.toString().padStart(2, '0')}:` +
-        `${seconds.toString().padStart(2, '0')}`;
+        let formattedTime =
+            `${minutes.toString().padStart(2, '0')}:` +
+            `${seconds.toString().padStart(2, '0')}`;
         //`${milliseconds.toString().padStart(2, '0')}`; // If we want milliseconds displayed
 
         stopwatch.innerHTML = formattedTime;
@@ -58,7 +59,7 @@ function startSliderAnimation() {
             resetSlider();
         }
     }
-    
+
     moveSlider();
 }
 
@@ -75,11 +76,10 @@ function resetSlider() {
 
 // fetch question and answers
 let score = 0; // Initialize score as global variable
-let correctIndex;
+let correctAnswer;
 let answers = [];
-answers.length = 3;
 
-function fetchQA(){
+function fetchQA() {
     const startGameButton = document.getElementById("startGameButton");
     startGameButton.style.display = 'none'; // hide start button on start
 
@@ -89,22 +89,22 @@ function fetchQA(){
         return;
     }
 
-    for(let i = 0; i < 4; i++){
+    for (let i = 0; i < 4; i++) {
         answers[i] = null;
     }
-    let removal = Math.floor(Math.random() * (questions.length - 1));
+    let removal = Math.floor(Math.random() * questions.length);
     const questionArea = document.getElementById("question");
     const currentQuestion = questions[removal];
-    
+
     questionArea.innerHTML = currentQuestion.question;
 
     let answerSlot = Math.floor(Math.random() * 3);
-    correctIndex = currentQuestion.correct_answer;
+    correctAnswer = currentQuestion.correct_answer;
     answers[answerSlot] = currentQuestion.correct_answer;
 
     let j = 0;
-    for(let i = 0; i < 4; i++){
-        if(answers[i] == null){
+    for (let i = 0; i < 4; i++) {
+        if (answers[i] == null) {
             answers[i] = currentQuestion.wrong_answers[j];
             j++;
         }
@@ -116,12 +116,12 @@ function fetchQA(){
     answerContainer = document.getElementById("answer-container");
     answerContainer.innerHTML = "";
     answers.forEach((answer) => {
-      answerContainer.innerHTML += `<button class="answer" onclick="checkCorrectAnswer('${answer}')">${answer}</button>`;
+        answerContainer.innerHTML += `<button class="answer" onclick="checkCorrectAnswer('${answer}')">${answer}</button>`;
     });
 
     //Reset slider animation
     resetSlider();
-    
+
 
     console.log(removal);
     console.log(questions);
@@ -129,14 +129,14 @@ function fetchQA(){
 }
 
 //check correct
-function checkCorrectAnswer(input){
-    if (input == correctIndex){
+function checkCorrectAnswer(input) {
+    if (input === correctAnswer) {
         // flash screen green if correct
         console.log("Correct! Input was: " + input);
         updateScore(100); // Increment the score by 100 when correct
-    }else {
+    } else {
         // flash red if incorrect
-        console.log("Incorrect! Input was: " + input + "\n Correct answer was: " + correctIndex);
+        console.log("Incorrect! Input was: " + input + "\n Correct answer was: " + correctAnswer);
     }
     fetchQA();
 }
@@ -153,9 +153,9 @@ function endGame() {
     let finalTime = document.getElementById("stopwatch").innerText;
 
     //Store finalScore and finalTime in localStorage (FOR NOW);
-    localStorage.setItem("finalScore", score); 
-    localStorage.setItem("finalTime", finalTime); 
-    
+    localStorage.setItem("finalScore", score);
+    localStorage.setItem("finalTime", finalTime);
+
     // Redirect to finalScore.html
     window.location.href = "finalScore.html";
 }
