@@ -2,8 +2,10 @@ from flask import Flask, jsonify
 from routes.questions import question_routes  # Import routes
 from routes.users import user_routes  # Import routes
 from database import db  # Import MongoDB connection
+from flask_cors import CORS
 
 app = Flask(__name__)
+CORS(app)
 
 # Register routes
 app.register_blueprint(question_routes)
