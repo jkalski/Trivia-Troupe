@@ -4,7 +4,31 @@ let signUpContainer = document.getElementById("create-account-button");
 let modalContainer = document.getElementById("modalContainer");
 let xButton = document.getElementById("x-btn");
 
-const loginForm = document.getElementsByClassName("loginForm");
+const loginForm = document.getElementById("loginForm");
+
+
+loginForm.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const username = document.getElementById("login-Username").value;
+    const password = document.getElementById("login-Password").value;
+
+    const res = await fetch("http://127.0.0.1:5000/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ username, password }),
+    });
+
+    const data = await res.json();
+    if (res.ok) {
+        alert("Login successful!");
+        // window.location.href = "questionPage.html"; // Optional redirect
+    } else {
+        alert(data.error || "Login failed");
+    }
+});
+
+
+
 const signUpForm = document.getElementById("signupForm");
 const signUpEmail = document.getElementById("SignUpEmail");
 const signUpUsername = document.getElementById("SignUpUsername");
