@@ -1,7 +1,7 @@
-// load database,
+let selectedCategory = localStorage.getItem("selectedCategory") || ""; // Get selected category from localStorage
 let questions = [];
 
-fetch("http://127.0.0.1:5000/questions")
+fetch("http://127.0.0.1:5000/questions?category=${encodeURIComponent('selectedCategory')}")
     .then((response) => {
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
@@ -10,7 +10,13 @@ fetch("http://127.0.0.1:5000/questions")
     })
     .then((data) => {
         questions = data;
-        console.log("Questions data loaded from backend:", questions);
+        console.log(`Questions for category "${selectedCategory}" loaded:`, questions);
+
+        // show category on the screen
+        const categoryDisplay = document.getElementById("categoryDisplay");
+        if (categoryDisplay) {
+            categoryDisplay.innerText = `Category: ${selectedCategory}`;
+        }
     })
     .catch((error) => console.error("Error loading questions from backend:", error));
 
@@ -89,31 +95,37 @@ function fetchQA() {
         return;
     }
 
-    for (let i = 0; i < 4; i++) {
-        answers[i] = null;
-    }
+    // Pick a random question and remove it from the array
     let removal = Math.floor(Math.random() * questions.length);
     const questionArea = document.getElementById("question");
     const currentQuestion = questions[removal];
 
-    questionArea.innerHTML = currentQuestion.question;
-
-    let answerSlot = Math.floor(Math.random() * 3);
-    correctAnswer = currentQuestion.correct_answer;
-    answers[answerSlot] = currentQuestion.correct_answer;
-
-    let j = 0;
-    for (let i = 0; i < 4; i++) {
-        if (answers[i] == null) {
-            answers[i] = currentQuestion.wrong_answers[j];
-            j++;
-        }
-
-    }
     questions[removal] = questions[questions.length - 1];
     questions.length = questions.length - 1;
 
-    answerContainer = document.getElementById("answer-container");
+    // Sanity check for incomplete data
+    if (
+        !currentQuestion ||
+        !currentQuestion.question ||
+        !currentQuestion.correct_answer ||
+        !currentQuestion.options ||
+        currentQuestion.options.length < 4
+    ) {
+        console.error("❌ Skipping bad question:", currentQuestion);
+        fetchQA(); // Skip and try another
+        return;
+    }
+
+    questionArea.innerHTML = currentQuestion.question;
+
+    // Store correct answer
+    correctAnswer = currentQuestion.correct_answer;
+
+    // Shuffle all answer options
+    answers = [...currentQuestion.options].sort(() => Math.random() - 0.5);
+
+    // Display all answer buttons
+    const answerContainer = document.getElementById("answer-container");
     answerContainer.innerHTML = "";
     answers.forEach((answer) => {
         answerContainer.innerHTML += `<button class="answer" onclick="checkCorrectAnswer('${answer}')">${answer}</button>`;
@@ -122,7 +134,7 @@ function fetchQA() {
     //Reset slider animation
     resetSlider();
 
-
+    // Debug logs
     console.log(removal);
     console.log(questions);
     console.log(answers);
@@ -140,6 +152,7 @@ function checkCorrectAnswer(input) {
     }
     fetchQA();
 }
+
 
 //update score   ??????
 function updateScore(points) {

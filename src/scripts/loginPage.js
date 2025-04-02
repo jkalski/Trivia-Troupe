@@ -20,6 +20,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const data = await res.json();
         if (res.ok) {
+            localStorage.setItem("username", username); // Store username in localStorage
             window.location.href = "category.html"; // Redirect after login
         } else {
             alert(data.error || "Login failed");

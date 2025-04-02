@@ -16,5 +16,6 @@ questions_collection = db["questions"]
 
 @question_routes.route('/questions', methods=['GET'])
 def get_questions():
+    #get optional 
     questions = list(questions_collection.find({}, {"_id": 0}))  # Fetch questions, exclude MongoDB _id field
     return jsonify(questions)

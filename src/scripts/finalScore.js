@@ -1,11 +1,12 @@
 //Retrive final time and score from local storage
 let finalScore = localStorage.getItem("finalScore") || "0000";
 let finalTime = localStorage.getItem("finalTime") || "00:00";
+let username = localStorage.getItem("username") || "Guest";
 
 // Inserting stats into table
 document.getElementById("player-stats").innerHTML = `
     <tr>
-        <td> player1 </td>
+        <td> ${username} </td>
         <td>${finalTime}</td>
         <td>${finalScore}</td>
     </tr>

@@ -12,5 +12,11 @@ categoryButtons.forEach(button => {
 
         // Redirect to the question page
         window.location.href = 'questionPage.html';
+        
     });
 });
+
+function startGame(category) {
+    localStorage.setItem("selectedCategory", category);
+    window.location.href = "questionPage.html";
+}

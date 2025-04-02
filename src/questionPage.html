@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,14 +8,18 @@
     <link rel="stylesheet" href="./styles/questionPage.css">
     <title>Trivia Troupe</title>
 </head>
-<body onload="startStopwatch()" >
+
+<body onload="startStopwatch()">
     <div class="header-container">
         <div class="timer">Timer: <span id="stopwatch"></span></div>
         <div class="score">Score: <span id="score">0000</span></div>
     </div>
     <div class="container">
+        <div id="categoryDisplay" class="category-display"></div>
         <div id="question" class="question">
-            
+           
+
+
         </div>
         <button id="startGameButton" onclick="fetchQA()"> Start Game</button>
         <div class="progressbar-timer">
@@ -30,4 +35,5 @@
 
 
 </body>
+
 </html>
