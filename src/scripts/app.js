@@ -1,7 +1,7 @@
 let selectedCategory = localStorage.getItem("selectedCategory") || ""; // Get selected category from localStorage
 let questions = [];
 
-fetch("http://127.0.0.1:5000/questions?category=${encodeURIComponent('selectedCategory')}")
+fetch(`http://127.0.0.1:5000/questions?category=${encodeURIComponent(selectedCategory)}`)
     .then((response) => {
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
