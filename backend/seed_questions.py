@@ -10,8 +10,9 @@ client = MongoClient(MONGO_URI)
 db = client["trivia_db"]
 questions_collection = db["questions"]
 
-# sample trivia questions matching your existing structure
+# trivia questions matching the categories
 sample_questions = [
+    # Science
     {
         "question": "What is the chemical symbol for gold?",
         "options": ["Go", "Gd", "Au", "Ag"],
@@ -19,11 +20,13 @@ sample_questions = [
         "category": "Science"
     },
     {
-        "question": "Which planet is known as the Red Planet?",
-        "options": ["Venus", "Mars", "Jupiter", "Saturn"],
-        "correct_answer": "Mars",
-        "category": "Astronomy"
+        "question": "What gas do humans need to breathe?",
+        "options": ["Hydrogen", "Carbon Dioxide", "Oxygen", "Nitrogen"],
+        "correct_answer": "Oxygen",
+        "category": "Science"
     },
+
+    # History
     {
         "question": "In which year did World War II end?",
         "options": ["1943", "1945", "1947", "1950"],
@@ -31,24 +34,39 @@ sample_questions = [
         "category": "History"
     },
     {
-        "question": "Who wrote Romeo and Juliet?",
-        "options": ["Charles Dickens", "William Shakespeare", "Jane Austen", "Mark Twain"],
-        "correct_answer": "William Shakespeare",
-        "category": "Literature"
+        "question": "Who was the first president of the United States?",
+        "options": ["John Adams", "Thomas Jefferson", "George Washington", "Abraham Lincoln"],
+        "correct_answer": "George Washington",
+        "category": "History"
     },
-    {
-        "question": "What is the largest ocean on Earth?",
-        "options": ["Atlantic Ocean", "Indian Ocean", "Arctic Ocean", "Pacific Ocean"],
-        "correct_answer": "Pacific Ocean",
-        "category": "Geography"
-    },
-    #Actual Questions
+
+    # Math
     {
         "question": "What is 2+2?",
         "options": ["1", "2", "3", "4"],
         "correct_answer": "4",
         "category": "Math"
     },
+    {
+        "question": "What is 10 / 2?",
+        "options": ["2", "3", "5", "10"],
+        "correct_answer": "5",
+        "category": "Math"
+    },
+
+    # Bio (Pop Culture)
+    {
+        "question": "Who played Iron Man in the Marvel movies?",
+        "options": ["Chris Evans", "Tom Holland", "Mark Ruffalo", "Robert Downey Jr."],
+        "correct_answer": "Robert Downey Jr.",
+        "category": "Bio"
+    },
+    {
+        "question": "Which singer is known for the song 'Shake It Off'?",
+        "options": ["Katy Perry", "Taylor Swift", "Ariana Grande", "Selena Gomez"],
+        "correct_answer": "Taylor Swift",
+        "category": "Bio"
+    }
 ]
 
 # check if questions already exist to avoid duplicates
