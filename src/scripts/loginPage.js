@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const data = await res.json();
         if (res.ok) {
-            window.location.href = "mainScreen.html";
+            window.location.href = "category.html"; // Redirect after login
         } else {
             alert(data.error || "Login failed");
         }
@@ -75,7 +75,7 @@ document.addEventListener("DOMContentLoaded", () => {
             const data = await res.json();
             if (res.ok) {
                 alert("Registration successful!");
-                window.location.href = "mainScreen.html"; //  Redirect after login
+                window.location.href = "category.html"; //  Redirect after login
             } else {
                 alert(data.error || "Registration failed");
             }
