@@ -1,39 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="./scripts/app.js" defer></script>
-    <link rel="stylesheet" href="./styles/questionPage.css">
+    <link rel="stylesheet" href="./styles/questionPage.css" />
     <title>Trivia Troupe</title>
-</head>
+  </head>
 
-<body onload="startStopwatch()">
+  <body onload="startStopwatch()">
     <div class="header-container">
-        <div class="timer">Timer: <span id="stopwatch"></span></div>
-        <div class="score">Score: <span id="score">0000</span></div>
+      <div class="timer">Timer: <span id="stopwatch"></span></div>
+      <div class="score">Score: <span id="score">0000</span></div>
     </div>
     <div class="container">
-        <div id="categoryDisplay" class="category-display"></div>
-        <div id="question" class="question">
-           
-
-
-        </div>
-        <button id="startGameButton" onclick="fetchQA()"> Start Game</button>
-        <div class="progressbar-timer">
-            <div class="progress-container"></div>
-            <div class="slider"></div>
-        </div>
-        <div class="answer-container">
-            <ul id="answer-container">
-
-            </ul>
-        </div>
+      <div id="categoryDisplay" class="category-display"></div>
+      <div id="question" class="question"></div>
+      <button id="startGameButton" onclick="fetchQA()">Start Game</button>
+      <div class="progressbar-timer">
+        <div class="progress-container"></div>
+        <div class="slider"></div>
+      </div>
+      <div class="answer-container">
+        <ul id="answer-container"></ul>
+      </div>
     </div>
-
-
-</body>
-
+  </body>
 </html>
