@@ -66,6 +66,13 @@ sample_questions = [
         "options": ["Katy Perry", "Taylor Swift", "Ariana Grande", "Selena Gomez"],
         "correct_answer": "Taylor Swift",
         "category": "Bio"
+    },
+    {
+
+        "question": "Which year did the the Sony Playstation Release in North America?",
+        "options": ["1985", "1990", "2002", "1995"],
+        "correct_answer": "1995",
+        "category": "Bio"
     }
 ]
 

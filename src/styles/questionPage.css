@@ -24,6 +24,9 @@ button {
     border: none;
     width: 60%;
     padding: 20px 0px 20px 0px;
+    outline: 4px solid black; /* White border around the categories */
+    border-radius: 15px;
+    font-size: 36px;
 }
 
 /* Timer & Score Styling */

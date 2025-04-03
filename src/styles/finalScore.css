@@ -16,6 +16,7 @@ body {
     font-size: 2rem;
     font-weight: bold;
     font-size: 64px;
+    text-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
 }
 
 
@@ -25,6 +26,9 @@ body {
     width: 60%;
     border-collapse: collapse;
     text-align: center;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    outline: 4px solid black; 
+    border-radius: 15px; /
 
 }
 
@@ -46,4 +50,20 @@ td {
     padding: 0.5rem;
     background-color: lightblue;
     color: orangered;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-5px); /* Move up */
+    }
+    100% {
+        transform: translateY(0); /* Return to the original position */
+    }
+}
+
+.score-table {
+    animation: float 2s ease-in-out infinite; 
 }
