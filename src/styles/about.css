@@ -1,0 +1,112 @@
+body {
+    margin: 0;
+    font-family: "Montserrat", sans-serif;
+    background-color: #fdf6e3;
+    padding-top: 70px;
+    color: #333;
+  }
+  
+  .header {
+    position: fixed;
+    right: 0;
+    top: 0;
+    left: 0;
+    padding: 10px 20px;
+    background: #1abc9c;
+    color: white;
+    font-size: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+  }
+
+  .header-left {
+    font-weight: bold;
+  }
+
+  .header-right a {
+    margin-left: 20px;
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+  }
+
+  .header-right a:hover {
+    color: red; 
+  }
+
+  .header-card {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 3%;
+    margin: auto;
+    background: #1abc9c;
+}
+  
+  
+  .about-container {
+    max-width: 800px;
+    margin: auto;
+    padding: 30px 20px;
+  }
+  
+  .about-container h1 {
+    font-size: 36px;
+    text-align: center;
+    margin-bottom: 30px;
+    color: #1abc9c;
+  }
+  
+  .intro {
+    font-size: 18px;
+    text-align: center;
+    margin-bottom: 40px;
+  }
+  
+  .section {
+    margin-bottom: 30px;
+  }
+  
+  .section h2 {
+    color: #1abc9c;
+    margin-bottom: 10px;
+  }
+  
+  .section p,
+  .section ul {
+    font-size: 16px;
+    line-height: 1.6;
+  }
+  
+  .section ul {
+    padding-left: 20px;
+  }
+  
+  .section ul li {
+    margin-bottom: 8px;
+  }
+
+  .button-container {
+    text-align: center;
+    margin-top: -110px;
+  }
+  
+  .team-button {
+    background-color: #1abc9c;
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    padding: 15px 30px;
+    border-radius: 8px;
+    display: inline-block;
+    transition: background-color 0.3s ease;
+  }
+  
+  .team-button:hover {
+    background-color: #16a085; /* darker teal */
+  }
+  

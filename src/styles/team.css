@@ -1,0 +1,129 @@
+body {
+    margin: 0;
+    font-family: "Montserrat", sans-serif;
+    background-color: #fdf6e3;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Ensures the body takes up full screen height */
+  }
+  
+  .header {
+    position: fixed;
+    right: 0;
+    top: 0;
+    left: 0;
+    padding: 10px 20px;
+    background: #1abc9c;
+    color: white;
+    font-size: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+  .header-left {
+    font-weight: bold;
+  }
+  
+  .header-right a {
+    margin-left: 20px;
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+  }
+  
+  .header-right a:hover {
+    color: red; 
+  }
+  
+  /* Flexbox for content below the header */
+  main {
+    flex: 1; /* This makes the main content take up the remaining space */
+    padding-top: 80px; /* Prevents overlap with the fixed header */
+  }
+  
+  .header-card {
+    background: #1abc9c;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    font-size: 18px;
+    position: relative; /* This ensures it stays at the bottom of the page */
+    margin-top: auto; /* This pushes it to the bottom of the screen */
+  }
+  
+  .team-container {
+    max-width: 1000px;
+    margin: auto;
+    padding: 30px 20px;
+    text-align: center;
+  }
+  
+  .team-container h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    color: #1abc9c;
+  }
+  
+  .team-container p {
+    font-size: 18px;
+    margin-bottom: 40px;
+  }
+  
+  .team-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+  }
+  
+  .team-card {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    text-align: center;
+  }
+  
+  .team-card img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    margin-bottom: 20px;
+  }
+  
+  .team-card h3 {
+    font-size: 20px;
+    color: #1abc9c;
+    margin-bottom: 10px;
+  }
+  
+  .team-card .role {
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 10px;
+  }
+  
+  .team-card p {
+    font-size: 14px;
+    line-height: 1.6;
+  }
+  
+  @media (max-width: 768px) {
+    .team-container {
+      padding: 30px 10px;
+    }
+  
+    .team-cards {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .team-cards {
+      grid-template-columns: 1fr;
+    }
+  }
+  
