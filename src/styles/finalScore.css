@@ -1,5 +1,6 @@
 body {
-    background-color: #FDFD96;
+    background-color: #fdf6e3;
+    font-family: "Montserrat", sans-serif;
     display: flex;
     justify-content: starts;
     align-items: center;
@@ -8,11 +9,53 @@ body {
     margin: 0;
 }
 
+.header {
+    position: fixed;
+    right: 0;
+    top: 0;
+    left: 0;
+    padding: 10px 20px;
+    background: #1abc9c;
+    color: white;
+    font-size: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+  }
+
+  .header-left {
+    font-weight: bold;
+  }
+
+  .header-right a {
+    margin-left: 20px;
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+  }
+
+  .header-right a:hover {
+    color: red; 
+  }
+
+  .header-card {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 3%;
+    margin: auto;
+    background: #1abc9c;
+}
+
 
 /*Centers the Final Score ~ 1/4 from the Top */
 .finalScore {
     margin-top: 25vh;
     margin-bottom: 50px;
+    font-family: 'Times New Roman', Times, serif;
     font-size: 2rem;
     font-weight: bold;
     font-size: 64px;
@@ -67,3 +110,23 @@ td {
 .score-table {
     animation: float 2s ease-in-out infinite; 
 }
+
+.button-container {
+    text-align: center;
+    margin-top: -430px;
+  }
+  
+  .home-button {
+    background-color: #1abc9c;
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    padding: 15px 30px;
+    border-radius: 8px;
+    display: inline-block;
+    transition: background-color 0.3s ease;
+  }
+  
+  .home-button:hover {
+    background-color: #16a085; /* darker teal */
+  }

@@ -5,8 +5,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const categoryButton = document.querySelector('.category-select-btn');
     const tutorialBoxes = document.querySelectorAll('.tutorial-box');
     const arrows = document.querySelectorAll('.arrow');
-    
+    const historyButton = document.querySelectorAll('.history-btn')
 
+    historyButton.forEach(button => {
+        button.addEventListener('click', () => {
+            window.location.href = 'history.html';
+        });
+    });
+    
     let currentStep = 0;
 
     // Show the tutorial when clicked

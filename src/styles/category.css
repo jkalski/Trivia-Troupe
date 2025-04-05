@@ -1,6 +1,6 @@
 body {
-    background-color: #FDFD96;
-    font-family: "Montserrat", sans-serif; /* Changed font to Montserrat */
+    background-color: #fdf6e3; /*#FDFD96; Pastel Yellow: #acb7db; light purpleish*/
+    font-family: "Montserrat", sans-serif; 
 }
 
 button {
@@ -11,14 +11,35 @@ button {
 }
 
 .header {
-    padding: 10px;
-    text-align: left;
+    position: fixed;
+    right: 0;
+    top: 0;
+    left: 0;
+    padding: 10px 20px;
     background: #1abc9c;
     color: white;
-    font-size: 10px;
+    font-size: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
   }
 
+  .header-left {
+    font-weight: bold;
+  }
 
+  .header-right a {
+    margin-left: 20px;
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+  }
+
+  .header-right a:hover {
+    color: red; 
+  }
 
   .header-card {
     position: absolute;
@@ -36,8 +57,9 @@ button {
     text-align: center;
     font-size: 32px;
     font-weight: bold;
-    margin-bottom: 40px; /* Adds space between the message and the categories */
-    color: #333; /* Dark color for the text */
+    margin-top: 60px;
+    margin-bottom: 40px; 
+    color: #333; 
 }
 
 /* Container to keep Buttons in middle of screen */

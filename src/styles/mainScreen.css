@@ -1,12 +1,56 @@
 body {
-    background-color: #FDFD96;
+    background-color: #fdf6e3;
+    font-family: "Montserrat", sans-serif; 
 }
 
 h1 {
     margin-top: 25vh;
     font-size: 64px;
-    text-shadow: 1px 1px 2px blue;
+    text-shadow: 1px 1px 2px black;
+    font-family:'Times New Roman', Times, serif;
 }
+
+.header {
+    position: fixed;
+    right: 0;
+    top: 0;
+    left: 0;
+    padding: 10px 20px;
+    background: #1abc9c;
+    color: white;
+    font-size: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+  }
+
+  .header-left {
+    font-weight: bold;
+  }
+
+  .header-right a {
+    margin-left: 20px;
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+  }
+
+  .header-right a:hover {
+    color: red; 
+  }
+
+  .header-card {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 3%;
+    margin: auto;
+    background: #1abc9c;
+}
+
 
 /* UL Styling (Manipulates Spacing for Categories) */
 ul {
@@ -40,7 +84,7 @@ ul {
     padding: 20px; /* Add padding inside the box */
     outline: 4px solid black; /* White border around the categories */
     border-radius: 15px; /* Optional: rounded corners for the white box */
-    background-color: rgba(255, 255, 255, 0.8); 
+    background-color: #e6e6e1;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); 
     gap: 24px; 
 }
