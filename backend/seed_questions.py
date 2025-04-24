@@ -10,6 +10,9 @@ client = MongoClient(MONGO_URI)
 db = client["trivia_db"]
 questions_collection = db["questions"]
 
+print("Clearing existing questions...")
+questions_collection.delete_many({})
+
 
 # trivia questions matching the categories
 sample_questions = [
@@ -58,8 +61,8 @@ sample_questions = [
     },
     {
         "question": "Whose gravity causes Earth's ocean tides?",
-        "options": ["The Moon's", "The Sun's", "Jupiter's", "Mars'"],
-        "correct_answer": "The Moon's",
+        "options": ["The Moon", "The Sun", "Jupiter", "Mar"],
+        "correct_answer": "The Moon",
         "category": "Science",
     },
     {
@@ -344,102 +347,12 @@ sample_questions = [
         "options": ["Katy Perry", "Taylor Swift", "Ariana Grande", "Selena Gomez"],
         "correct_answer": "Taylor Swift",
         "category": "Pop Culture",
+        "category": "Pop Culture",
     },
     {
-
         "question": "Which year did the the Sony Playstation Release in North America?",
         "options": ["1985", "1990", "2002", "1995"],
         "correct_answer": "1995",
-        "category": "Pop Culture",
-    },
-    {
-        "question": "What year was the first iPhone released in the United States?",
-        "options": ["2000", "1999", "2005", "2007"],
-        "correct_answer": "2007",
-        "category": "Pop Culture",
-    },
-    {
-        "question": "Tom Kenny voices which popular TV cartoon character?",
-        "options": ["Bart Simpson", "Peter Griffin", "Sonic the Hedgehog", "Spongebob Squarepants"],
-        "correct_answer": "Spongebob Squarepants",
-        "category": "Pop Culture",
-    },
-    {
-        "question": "Which year was Twitter launched?",
-        "options": ["2005", "2006", "2008", "2009"],
-        "correct_answer": "2006",
-        "category": "Pop Culture",
-    },
-    {
-        "question": "“Phone a Friend” is an option for contestants of what popular 2000's game show?",
-        "options": ["Who Wants to Be a Millionaire", "Let's Make a Deal", "Wheel of Fortune", "Jeopardy"],
-        "correct_answer": "Who Wants to Be a Millionaire",
-        "category": "Pop Culture",
-    },
-    {
-        "question": "In Lord of the Rings, the role of Gandalf is played by which actor?",
-        "options": ["Elijah Wood", "Orlando Bloom", "Ian McKellen", "Ian Holm"],
-        "correct_answer": "Ian McKellen",
-        "category": "Pop Culture",
-    },
-    {
-        "question": "What Steven Spielber movie for Best Picture in 2022?",
-        "options": ["The Post", "Ready Player One", "The Fabelmans", "West Side Story"],
-        "correct_answer": "West Side Story",
-        "category": "Pop Culture",
-    },
-    {
-        "question": "Beyonce was born in what Texas city?",
-        "options": ["Dallas", "Houston", "Austin", "San Antonio"],
-        "correct_answer": "Houstan",
-        "category": "Pop Culture",
-    },
-    {
-        "question": "What is the highest grossing film of all time?",
-        "options": ["Avatar", "Avengers: Endgame", "Titanic", "The Lion King"],
-        "correct_answer": "Avatar",
-        "category": "Pop Culture",
-    },
-    {
-        "question": "Which actor played Batman in the 1989 film directed by Tim Burton?",
-        "options": ["Ben Affleck", "George Clooney", "Adam West", "Michael Keaton"],
-        "correct_answer": "Michael Keaton",
-        "category": "Pop Culture",
-    },
-    {
-        "question": "Which social media platform was founded by Mark Zuckerberg in 2004 and has since become one of the most popular and influential platforms worldwide?",
-        "options": ["Twitter", "Instagram", "Facebook", "TikTok"],
-        "correct_answer": "Facebook",
-        "category": "Pop Culture",
-    },
-    {
-        "question": "What is the name of the NFL quarterback who won seven Super Bowl titles with the New England Patriots?",
-        "options": ["Peyton Manning", "Tom Brady", "Aaron Rodgers", "Drew Brees"],
-        "correct_answer": "Tom Brady",
-        "category": "Pop Culture",
-    },
-    {
-        "question": "Who famously interrupted Taylor Swift's acceptance speech at the 2009 MTV Video Music Awards, sparking controversy and backlash?",
-        "options": ["Kanye West", "Eminem", "Nicki Minaj", "Jay-Z"],
-        "correct_answer": "Kanye West",
-        "category": "Pop Culture",
-    },
-    {
-        "question": "What is the name of the social media app that allows users to create short-form videos set to music?",
-        "options": ["Vine", "Instagram", "Tiktok", "Twitter"],
-        "correct_answer": "TikTok",
-        "category": "Pop Culture",
-    },
-    {
-        "question": "Which legendary musician was known as the “King of Pop”?",
-        "options": ["Elvis Presley", "Elton John", "Queen", "Michael Jackson"],
-        "correct_answer": "Michael Jackson",
-        "category": "Pop Culture",
-    },
-    {
-        "question": "Who won the Best Actor Oscar for his role in The Revenant in 2016?",
-        "options": ["Tom Hardy", "Leonardo DiCaprio", "Will Poulter", "Paul Anderson"],
-        "correct_answer": "Leonardo DiCaprio",
         "category": "Pop Culture",
     },
 ]
