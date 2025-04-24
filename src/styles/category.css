@@ -231,3 +231,67 @@ button {
 .tutorial-btn, .category-select-btn, .history-btn {
     animation: float 2s ease-in-out infinite; /* Floating effect every 2 seconds */
 }
+
+.dark-mode {
+    background-color: #121212;
+    color: #f0f0f0;
+}
+
+.dark-mode .header,
+.dark-mode .header-card {
+    background-color: #333;
+}
+
+.dark-mode .tutorial-box,
+.dark-mode .category-container {
+    background-color: #1e1e1e;
+    color: #fff;
+    border-color: #555;
+}
+
+/* Dark-mode button styling */
+.dark-mode .tutorial-btn {
+    background: #5DAEA7; /* Muted cyan */
+    color: #fff;
+    border-color: #888;
+}
+
+.dark-mode .category-select-btn {
+    background: #789262; /* Muted green */
+    color: #fff;
+    border-color: #888;
+}
+
+.dark-mode .history-btn {
+    background: #A3676A; /* Muted pink/coral */
+    color: #fff;
+    border-color: #888;
+}
+
+.dark-mode .next-btn {
+    background-color: #444;
+    border-color: #999;
+    color: #fff;
+}
+
+.dark-mode .tutorial-btn:hover {
+    border-color: red; /* Changes border color to red on hover */
+}
+
+.dark-mode .category-select-btn:hover {
+    border-color: red; /* Changes border color to red on hover */
+}
+
+.dark-mode .history-btn:hover {
+    border-color: red; /* Changes border color to red on hover */
+}
+
+.dark-mode .welcome-message {
+    text-align: center;
+    font-size: 32px;
+    font-weight: bold;
+    margin-top: 60px;
+    margin-bottom: 40px; 
+    color: #f0ebeb; 
+}
+  

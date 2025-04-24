@@ -109,4 +109,14 @@ body {
   .team-button:hover {
     background-color: #16a085; /* darker teal */
   }
+
+  .dark-mode {
+    background-color: #121212;
+    color: #f0f0f0;
+  }
+  
+  .dark-mode .header,
+  .dark-mode .header-card {
+    background-color: #333;
+  }
   

@@ -118,3 +118,13 @@ button {
     font-weight: bold;
     margin-bottom: 10px;
 }
+
+.dark-mode {
+    background-color: #121212;
+    color: #f0f0f0;
+  }
+  
+  .dark-mode .header,
+  .dark-mode .header-card {
+    background-color: #333;
+  }

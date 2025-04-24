@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <script src="./scripts/settings.js" defer></script>
+  <title>Settings | TriviaTroupe</title>
+  <link rel="stylesheet" href="./styles/settings.css" />
+</head>
+<body>
+
+  <div class="header">
+    <div class="header-left">TriviaTroupe</div>
+    <div class="header-right">
+      <a href="category.html">Home</a>
+      <a href="settings.html">Settings</a>
+      <a href="about.html">About</a>
+    </div>
+  </div>
+
+  <main class="settings-container">
+    <h1>Settings</h1>
+
+    <div class="setting-group">
+        <h2>Account</h2>
+        <label>Username: <input type="text" placeholder="Enter new username" /></label>
+        <label>Password: <input type="password" placeholder="Enter new password" /></label>
+        <button>Update Account</button>
+    </div>
+
+    <div class="setting-group">
+      <label for="volume">Volume</label>
+      <input type="range" id="volume" min="0" max="100" value="50">
+    </div>
+
+    <div class="setting-group toggle">
+        <label for="dark-mode">Dark Mode</label>
+        <label class="switch">
+          <input type="checkbox" id="dark-mode">
+          <span class="slider round"></span>
+        </label>
+      </div>      
+
+    <button class="save-btn">Save Settings</button>
+  </main>
+
+</body>
+<div class="header-card"></div>
+</html>

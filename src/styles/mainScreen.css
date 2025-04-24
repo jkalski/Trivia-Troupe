@@ -89,7 +89,7 @@ ul {
 }
 
 button {
-  background: #E34234;
+  background: #EF6C57;
   border: none;
   color: white;
   padding: 80px 50px;
@@ -110,17 +110,41 @@ button:hover {
 
 /* styling for smaller window sizes and mobile */
 @media (width < 690px) {
-h1 {
-  margin-top: 5vh;
-}
+  h1 {
+    margin-top: 5vh;
+  }
+  
+  button {
+    padding: 80px 50px;
+  }
+  
+  .category-container {
+      flex-direction: column;
+      padding: 30px;
+  }
+  
+  }
 
-button {
-  padding: 80px 50px;
-}
-
-.category-container {
-    flex-direction: column;
-    padding: 30px;
-}
-
-}
+  .dark-mode {
+    background-color: #121212;
+    color: #f0f0f0;
+  }
+  
+  .dark-mode .header,
+  .dark-mode .header-card {
+    background-color: #333;
+  }
+  
+  /* Corrected dark mode for actual <button> elements */
+  .dark-mode button {
+    background: #A3676A; /* Muted red-pink */
+    color: #fff;
+    border: none;
+    box-shadow: 0 8px 16px rgba(255, 255, 255, 0.2); /* lighter shadow for dark bg */
+  }
+  
+  /* Hover effect for dark mode buttons */
+  .dark-mode button:hover {
+    outline: 4px solid #90ee90; /* Light green for visibility */
+    transform: scale(1.05);
+  }

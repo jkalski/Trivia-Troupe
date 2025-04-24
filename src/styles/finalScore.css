@@ -130,3 +130,23 @@ td {
   .home-button:hover {
     background-color: #16a085; /* darker teal */
   }
+
+  .dark-mode {
+    background-color: #121212;
+    color: #f0f0f0;
+  }
+  
+  .dark-mode .header,
+  .dark-mode .header-card {
+    background-color: #333;
+  }
+  
+  .dark-mode .team-card,
+  .dark-mode .tutorial-box,
+  .dark-mode .category-select,
+  .dark-mode .history,
+  .dark-mode .tutorial {
+    background-color: #1e1e1e;
+    color: #fff;
+  }
+  

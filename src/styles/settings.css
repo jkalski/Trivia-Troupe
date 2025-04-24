@@ -1,0 +1,222 @@
+/* General Body Styling */
+body {
+    margin: 0;
+    font-family: "Montserrat", sans-serif;
+    background-color: #fdf6e3;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    color: #333;
+  }
+  
+  /* Header Styling */
+  .header {
+    position: fixed;
+    right: 0;
+    top: 0;
+    left: 0;
+    padding: 10px 20px;
+    background: #1abc9c;
+    color: white;
+    font-size: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+  .header-left {
+    font-weight: bold;
+  }
+  
+  .header-right a {
+    margin-left: 20px;
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+  }
+  
+  .header-right a:hover {
+    color: #ff6b6b;
+  }
+  
+  /* Header Card */
+  .header-card {
+    background: #1abc9c;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    font-size: 18px;
+    position: relative;
+    margin-top: auto;
+  }
+  
+  /* Main Settings Container */
+  .settings-container {
+    text-align: center;
+    max-width: 700px;
+    margin: auto;
+    margin-top: 80px;
+    margin-bottom: 30px;
+    padding: 40px 100px;
+    flex: 1;
+    background: #fff;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+  }
+  
+  .settings-container h1 {
+    font-size: 36px;
+    margin-bottom: 30px;
+    color: #1abc9c;
+    text-align: center;
+  }
+  
+  /* Styling for Each Setting Group */
+  .setting-group {
+    margin-bottom: 30px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .setting-group h2 {
+    font-size: 20px;
+    margin-bottom: 30px;
+    color: #333;
+  }
+  
+  .setting-group label {
+    font-weight: 600;
+    margin-bottom: 28px;
+  }
+  
+  .setting-group input[type="text"],
+  .setting-group input[type="password"],
+  .setting-group input[type="range"] {
+    padding: 15px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+  }
+  
+  .setting-group input[type="range"] {
+    width: 100%;
+  }
+  
+  .setting-group.toggle {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .save-btn {
+    background-color: #1abc9c;
+    color: white;
+    border: none;
+    padding: 14px 28px;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    display: block;
+    margin: 120px auto 0;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+  
+  .save-btn:hover {
+    background-color: #159b88;
+    transform: scale(1.05);
+  }
+  
+  /* Dark Mode Styling */
+  body.dark-mode {
+    background-color: #121212;
+    color: #f5f5f5;
+  }
+  
+  body.dark-mode .header {
+    background-color: #333;
+  }
+  
+  body.dark-mode .header-card {
+    background-color: #333;
+  }
+  
+  body.dark-mode .header-right a {
+    color: #f5f5f5;
+  }
+  
+  body.dark-mode .header-right a:hover {
+    color: #ff6b6b;
+  }
+  
+  body.dark-mode .save-btn {
+    background-color: #444;
+  }
+
+  .dark-mode .settings-container {
+    background: #645e5e;
+    
+  }
+
+  .dark-mode .setting-group h2 {
+    color: #eee7e7;
+  }
+  
+  body.dark-mode .setting-group input[type="text"],
+  body.dark-mode .setting-group input[type="password"],
+  body.dark-mode .setting-group input[type="range"] {
+    background-color: #1e1e1e;
+    color: white;
+    border: 1px solid #555;
+  }
+  
+  /* Toggle Switch Styles */
+  .switch {
+    position: relative;
+    display: inline-block;
+    width: 52px;
+    height: 28px;
+    margin-left: 10px;
+  }
+  
+  .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    background-color: #ccc;
+    transition: 0.4s;
+    border-radius: 34px;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 20px;
+    width: 20px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: 0.4s;
+    border-radius: 50%;
+  }
+  
+  input:checked + .slider {
+    background-color: #1abc9c;
+  }
+  
+  input:checked + .slider:before {
+    transform: translateX(24px);
+  }
+  
+  
