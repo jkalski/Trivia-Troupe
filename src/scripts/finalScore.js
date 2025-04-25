@@ -12,14 +12,6 @@ document.getElementById("player-stats").innerHTML = `
     </tr>
 `;
 
-
-//Return to category page if button is clicked
-let button = document.querySelector("#returnHome");
-
-button.addEventListener('click', () => {
-    window.location.href = "category.html";
-});
-
 document.addEventListener('DOMContentLoaded', () => {
     // Apply dark mode based on localStorage
     if (localStorage.getItem('darkMode') === 'enabled') {
@@ -41,4 +33,4 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       });
     }
-  });
+});

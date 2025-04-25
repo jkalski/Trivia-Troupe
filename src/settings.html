@@ -6,6 +6,54 @@
   <script src="./scripts/settings.js" defer></script>
   <title>Settings | TriviaTroupe</title>
   <link rel="stylesheet" href="./styles/settings.css" />
+  <style>
+    /* Styled button for Update Account */
+    .setting-group button {
+      background-color: #1abc9c;
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 10px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+      margin-top: 15px;
+      width: 100%;
+      max-width: 200px;
+      align-self: center;
+    }
+    
+    .setting-group button:hover {
+      background-color: #159b88;
+      transform: scale(1.05);
+    }
+    
+    /* Dark mode styling for the button */
+    body.dark-mode .setting-group button {
+      background-color: #444;
+    }
+    
+    body.dark-mode .setting-group button:hover {
+      background-color: #555;
+    }
+    
+    /* Notification styling */
+    .notification {
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: #1abc9c;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 5px;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+      z-index: 1001;
+      opacity: 1;
+      transition: opacity 0.5s ease;
+    }
+  </style>
 </head>
 <body>
 
@@ -25,7 +73,7 @@
         <h2>Account</h2>
         <label>Username: <input type="text" placeholder="Enter new username" /></label>
         <label>Password: <input type="password" placeholder="Enter new password" /></label>
-        <button>Update Account</button>
+        <button class="update-account-btn">Update Account</button>
     </div>
 
     <div class="setting-group">

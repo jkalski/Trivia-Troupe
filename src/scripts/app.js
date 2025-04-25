@@ -1,5 +1,8 @@
 let selectedCategory = localStorage.getItem("selectedCategory") || ""; // Get selected category from localStorage
 let questions = [];
+let currentAnimationFrame = null; // Track current animation frame
+let isTransitioning = false; // Prevent multiple transitions
+let gameStarted = false; // Track if game has started
 
 fetch(`http://127.0.0.1:5000/questions?category=${encodeURIComponent(selectedCategory)}`)
     .then((response) => {
@@ -20,7 +23,6 @@ fetch(`http://127.0.0.1:5000/questions?category=${encodeURIComponent(selectedCat
     })
     .catch((error) => console.error("Error loading questions from backend:", error));
 
-
 //  stopwatch starts. 
 function startStopwatch() {
     const stopwatch = document.getElementById("stopwatch");
@@ -39,11 +41,17 @@ function startStopwatch() {
 
         stopwatch.innerHTML = formattedTime;
         counter += 10;
-    }, 10)
-};
+    }, 10);
+}
 
 // Having the slider move
 function startSliderAnimation() {
+    // Cancel any existing animation
+    if (currentAnimationFrame) {
+        cancelAnimationFrame(currentAnimationFrame);
+        currentAnimationFrame = null;
+    }
+
     const slider = document.querySelector(".slider");
     let progressBar = document.querySelector(".progress-container").offsetWidth;
     let startTime = Date.now(); // Capture start time
@@ -57,20 +65,33 @@ function startSliderAnimation() {
         slider.style.transform = `translateX(${-newPosition}px)`;
 
         if (percentage < 1) {
-            requestAnimationFrame(moveSlider);
+            currentAnimationFrame = requestAnimationFrame(moveSlider);
         }
         else {
-            //When timer reaches 0, reset the slider and go to the next question
-            fetchQA();
-            resetSlider();
+            // When timer reaches 0, go to next question only if not already transitioning
+            if (!isTransitioning) {
+                isTransitioning = true;
+                fetchQA();
+                
+                // Allow transitions again after a delay
+                setTimeout(() => {
+                    isTransitioning = false;
+                }, 500);
+            }
         }
     }
 
-    moveSlider();
+    currentAnimationFrame = requestAnimationFrame(moveSlider);
 }
 
-//Reseet the slider back to the right side
+// Reset the slider back to the right side
 function resetSlider() {
+    // Cancel any existing animation first
+    if (currentAnimationFrame) {
+        cancelAnimationFrame(currentAnimationFrame);
+        currentAnimationFrame = null;
+    }
+
     const slider = document.querySelector('.slider');
     slider.style.transform = `translateX(${document.querySelector(".progress-container").offsetWidth}px)`;
 
@@ -79,19 +100,24 @@ function resetSlider() {
     }, 100); // Restart with small delay
 }
 
-
 // fetch question and answers
 let score = 0; // Initialize score as global variable
 let correctAnswer;
 let answers = [];
+let lastAnswerTime = 0; // Used to prevent rapid-fire answers
 
 function fetchQA() {
     const startGameButton = document.getElementById("startGameButton");
     startGameButton.style.display = 'none'; // hide start button on start
 
-    //Checking if the questions array is empty
+    // Initialize the game if not already started
+    if (!gameStarted) {
+        gameStarted = true;
+    }
+
+    // Checking if the questions array is empty
     if (questions.length === 0) {
-        endGame(); //End the game and go to the final screen page
+        endGame(); // End the game and go to the final screen page
         return;
     }
 
@@ -112,7 +138,8 @@ function fetchQA() {
         currentQuestion.options.length < 4
     ) {
         console.error("❌ Skipping bad question:", currentQuestion);
-        fetchQA(); // Skip and try another
+        // Use setTimeout to prevent stack overflow for recursive calls
+        setTimeout(() => fetchQA(), 0);
         return;
     }
 
@@ -131,41 +158,71 @@ function fetchQA() {
         answerContainer.innerHTML += `<button class="answer" onclick="checkCorrectAnswer('${answer}')">${answer}</button>`;
     });
 
-    //Reset slider animation
+    // Reset slider animation
     resetSlider();
 
     // Debug logs
-    console.log(removal);
-    console.log(questions);
-    console.log(answers);
+    console.log("Question index:", removal);
+    console.log("Remaining questions:", questions.length);
+    console.log("Answer options:", answers);
 }
 
-//check correct
+// Check correct answer with debounce to prevent rapid clicks
 function checkCorrectAnswer(input) {
-    if (input === correctAnswer) {
-        // flash screen green if correct
-        console.log("Correct! Input was: " + input);
-        updateScore(100); // Increment the score by 100 when correct
-    } else {
-        // flash red if incorrect
-        console.log("Incorrect! Input was: " + input + "\n Correct answer was: " + correctAnswer);
+    const now = Date.now();
+    
+    // Prevent rapid-fire answers (must be at least 500ms apart)
+    if (now - lastAnswerTime < 500) return;
+    lastAnswerTime = now;
+    
+    // Only process if not currently transitioning
+    if (!isTransitioning) {
+        isTransitioning = true;
+        
+        if (input === correctAnswer) {
+            // flash screen green if correct
+            document.body.classList.add('correct-answer');
+            console.log("Correct! Input was: " + input);
+            updateScore(100); // Increment the score by 100 when correct
+        } else {
+            // flash red if incorrect
+            document.body.classList.add('incorrect-answer');
+            console.log("Incorrect! Input was: " + input + "\n Correct answer was: " + correctAnswer);
+        }
+        
+        // Remove flash effect after a short delay
+        setTimeout(() => {
+            document.body.classList.remove('correct-answer', 'incorrect-answer');
+        }, 300);
+        
+        // Cancel current animation before fetching next question
+        if (currentAnimationFrame) {
+            cancelAnimationFrame(currentAnimationFrame);
+            currentAnimationFrame = null;
+        }
+        
+        // Get next question
+        fetchQA();
+        
+        // Allow transitions again after a delay
+        setTimeout(() => {
+            isTransitioning = false;
+        }, 500);
     }
-    fetchQA();
 }
 
-
-//update score   ??????
+// Update score
 function updateScore(points) {
     score += points;
-    document.getElementById("score").innerText = `${score.toString().padStart(4, '0')}`; //Format the score as 0000
+    document.getElementById("score").innerText = `${score.toString().padStart(4, '0')}`; // Format the score as 0000
 }
 
-//stopwatch/game ends
+// Game ends
 function endGame() {
-    //Get final time from stopwatch display
+    // Get final time from stopwatch display
     let finalTime = document.getElementById("stopwatch").innerText;
 
-    //Store finalScore and finalTime in localStorage (FOR NOW);
+    // Store finalScore and finalTime in localStorage
     localStorage.setItem("finalScore", score);
     localStorage.setItem("finalTime", finalTime);
 
@@ -176,22 +233,35 @@ function endGame() {
 document.addEventListener('DOMContentLoaded', () => {
     // Apply dark mode based on localStorage
     if (localStorage.getItem('darkMode') === 'enabled') {
-      document.body.classList.add('dark-mode');
+        document.body.classList.add('dark-mode');
     }
   
     // Optional: handle dark mode toggle on pages with a checkbox
     const toggle = document.getElementById('dark-mode');
     if (toggle) {
-      toggle.checked = localStorage.getItem('darkMode') === 'enabled';
+        toggle.checked = localStorage.getItem('darkMode') === 'enabled';
   
-      toggle.addEventListener('change', () => {
-        if (toggle.checked) {
-          document.body.classList.add('dark-mode');
-          localStorage.setItem('darkMode', 'enabled');
-        } else {
-          document.body.classList.remove('dark-mode');
-          localStorage.setItem('darkMode', 'disabled');
-        }
-      });
+        toggle.addEventListener('change', () => {
+            if (toggle.checked) {
+                document.body.classList.add('dark-mode');
+                localStorage.setItem('darkMode', 'enabled');
+            } else {
+                document.body.classList.remove('dark-mode');
+                localStorage.setItem('darkMode', 'disabled');
+            }
+        });
     }
-  });
+});
+
+// Add this to style.css for visual feedback (optional)
+/*
+.correct-answer {
+    background-color: rgba(0, 255, 0, 0.3);
+    transition: background-color 0.3s;
+}
+
+.incorrect-answer {
+    background-color: rgba(255, 0, 0, 0.3);
+    transition: background-color 0.3s;
+}
+*/
