@@ -1,0 +1,49 @@
+<!-- src/create-category.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./scripts/create-category.js" defer></script>
+    <link rel="stylesheet" href="./styles/create-category.css">
+    <title>Create Category - Trivia Troupe</title>
+</head>
+<body>
+    <div class="header">
+        <div class="header-left">TriviaTroupe</div>
+        <div class="header-right">
+          <a href="category.html">Home</a>
+          <a href="settings.html">Settings</a>
+          <a href="about.html">About</a>
+        </div>
+    </div>
+
+    <div class="container">
+        <h1>Create Custom Category</h1>
+        <form id="categoryForm">
+            <div class="form-group">
+                <label for="categoryName">Category Name</label>
+                <input type="text" id="categoryName" name="categoryName" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="categoryDescription">Description (Optional)</label>
+                <textarea id="categoryDescription" name="categoryDescription"></textarea>
+            </div>
+            
+            <div class="form-group checkbox">
+                <label>
+                    <input type="checkbox" id="isPublic" name="isPublic">
+                    Make this category public (other users can see it)
+                </label>
+            </div>
+            
+            <button type="submit" class="create-btn">Create Category</button>
+        </form>
+    </div>
+
+    <div id="notification" class="notification"></div>
+
+    <div class="header-card"></div>
+</body>
+</html>

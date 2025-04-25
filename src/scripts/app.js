@@ -1,10 +1,22 @@
 let selectedCategory = localStorage.getItem("selectedCategory") || ""; // Get selected category from localStorage
+let customCategoryId = localStorage.getItem("customCategoryId") || ""; // Get custom category ID if it exists
 let questions = [];
 let currentAnimationFrame = null; // Track current animation frame
 let isTransitioning = false; // Prevent multiple transitions
 let gameStarted = false; // Track if game has started
 
-fetch(`http://127.0.0.1:5000/questions?category=${encodeURIComponent(selectedCategory)}`)
+// Determine the correct URL based on whether we have a custom category or standard category
+let fetchUrl = "http://127.0.0.1:5000/questions";
+
+// If we have a custom category ID, use that
+if (customCategoryId) {
+    fetchUrl += `?custom_category_id=${encodeURIComponent(customCategoryId)}`;
+} else if (selectedCategory) {
+    // Otherwise use the standard category
+    fetchUrl += `?category=${encodeURIComponent(selectedCategory)}`;
+}
+
+fetch(fetchUrl)
     .then((response) => {
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
@@ -129,13 +141,18 @@ function fetchQA() {
     questions[removal] = questions[questions.length - 1];
     questions.length = questions.length - 1;
 
+    // Handle different question fields in custom vs standard categories
+    const questionText = currentQuestion.question_text || currentQuestion.question;
+    const options = currentQuestion.options || [];
+    const correctAnswerValue = currentQuestion.correct_answer;
+
     // Sanity check for incomplete data
     if (
         !currentQuestion ||
-        !currentQuestion.question ||
-        !currentQuestion.correct_answer ||
-        !currentQuestion.options ||
-        currentQuestion.options.length < 4
+        !questionText ||
+        !correctAnswerValue ||
+        !options ||
+        options.length < 2
     ) {
         console.error("❌ Skipping bad question:", currentQuestion);
         // Use setTimeout to prevent stack overflow for recursive calls
@@ -143,13 +160,13 @@ function fetchQA() {
         return;
     }
 
-    questionArea.innerHTML = currentQuestion.question;
+    questionArea.innerHTML = questionText;
 
     // Store correct answer
-    correctAnswer = currentQuestion.correct_answer;
+    correctAnswer = correctAnswerValue;
 
     // Shuffle all answer options
-    answers = [...currentQuestion.options].sort(() => Math.random() - 0.5);
+    answers = [...options].sort(() => Math.random() - 0.5);
 
     // Display all answer buttons
     const answerContainer = document.getElementById("answer-container");
@@ -225,6 +242,9 @@ function endGame() {
     // Store finalScore and finalTime in localStorage
     localStorage.setItem("finalScore", score);
     localStorage.setItem("finalTime", finalTime);
+
+    // Clear the custom category ID when game is over
+    localStorage.removeItem("customCategoryId");
 
     // Redirect to finalScore.html
     window.location.href = "finalScore.html";

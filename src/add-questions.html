@@ -1,0 +1,70 @@
+<!-- src/add-questions.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./scripts/add-questions.js" defer></script>
+    <link rel="stylesheet" href="./styles/add-questions.css">
+    <title>Add Questions - Trivia Troupe</title>
+</head>
+<body>
+    <div class="header">
+        <div class="header-left">TriviaTroupe</div>
+        <div class="header-right">
+          <a href="category.html">Home</a>
+          <a href="settings.html">Settings</a>
+          <a href="about.html">About</a>
+        </div>
+    </div>
+
+    <div class="container">
+        <h1>Add Questions to <span id="categoryName"></span></h1>
+        
+        <form id="questionForm">
+            <div class="form-group">
+                <label for="questionText">Question</label>
+                <input type="text" id="questionText" name="questionText" required>
+            </div>
+            
+            <div class="options-container">
+                <h3>Options</h3>
+                <div class="option-group">
+                    <input type="radio" name="correctOption" value="0" checked>
+                    <input type="text" class="option-input" placeholder="Option 1" required>
+                </div>
+                
+                <div class="option-group">
+                    <input type="radio" name="correctOption" value="1">
+                    <input type="text" class="option-input" placeholder="Option 2" required>
+                </div>
+                
+                <div class="option-group">
+                    <input type="radio" name="correctOption" value="2">
+                    <input type="text" class="option-input" placeholder="Option 3" required>
+                </div>
+                
+                <div class="option-group">
+                    <input type="radio" name="correctOption" value="3">
+                    <input type="text" class="option-input" placeholder="Option 4" required>
+                </div>
+            </div>
+            
+            <button type="submit" class="add-btn">Add Question</button>
+        </form>
+        
+        <div class="questions-list">
+            <h2>Questions Added (<span id="questionCount">0</span>)</h2>
+            <ul id="questionsList"></ul>
+        </div>
+        
+        <div class="buttons">
+            <button id="finishBtn" class="finish-btn">Finish and Return</button>
+        </div>
+    </div>
+
+    <div id="notification" class="notification"></div>
+
+    <div class="header-card"></div>
+</body>
+</html>

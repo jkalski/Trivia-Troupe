@@ -1,0 +1,278 @@
+/* src/styles/add-questions.css */
+body {
+    margin: 0;
+    font-family: "Montserrat", sans-serif;
+    background-color: #fdf6e3;
+    padding-top: 70px;
+    color: #333;
+}
+
+/* Header Styling */
+.header {
+    position: fixed;
+    right: 0;
+    top: 0;
+    left: 0;
+    padding: 10px 20px;
+    background: #1abc9c;
+    color: white;
+    font-size: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+}
+
+.header-left {
+    font-weight: bold;
+}
+
+.header-right a {
+    margin-left: 20px;
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.header-right a:hover {
+    color: red; 
+}
+
+.header-card {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 3%;
+    margin: auto;
+    background: #1abc9c;
+}
+
+/* Main Container */
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 30px;
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    margin-bottom: 50px;
+}
+
+h1 {
+    text-align: center;
+    color: #1abc9c;
+    margin-bottom: 30px;
+    font-size: 28px;
+}
+
+h2 {
+    color: #1abc9c;
+    margin-top: 40px;
+    font-size: 22px;
+}
+
+h3 {
+    color: #333;
+    margin-top: 20px;
+    font-size: 18px;
+}
+
+/* Form Styling */
+.form-group {
+    margin-bottom: 25px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+input[type="text"], textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+    font-family: inherit;
+}
+
+.options-container {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+}
+
+.option-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.option-group input[type="radio"] {
+    margin-right: 15px;
+    transform: scale(1.2);
+}
+
+.option-group input[type="text"] {
+    flex: 1;
+}
+
+/* Buttons */
+button {
+    background-color: #1abc9c;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+button:hover {
+    background-color: #16a085;
+    transform: scale(1.05);
+}
+
+.add-btn {
+    display: block;
+    margin: 0 auto;
+    width: 200px;
+}
+
+.finish-btn {
+    background-color: #3498db;
+    display: block;
+    margin: 30px auto 0;
+    width: 250px;
+}
+
+.finish-btn:hover {
+    background-color: #2980b9;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+/* Questions List */
+.questions-list {
+    margin-top: 40px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+}
+
+#questionsList {
+    list-style-type: none;
+    padding: 0;
+}
+
+#questionsList li {
+    padding: 15px;
+    margin-bottom: 10px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Notification */
+.notification {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 15px 25px;
+    border-radius: 8px;
+    font-weight: bold;
+    z-index: 1000;
+    display: none;
+}
+
+.success {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.error {
+    background-color: #f44336;
+    color: white;
+}
+
+.info {
+    background-color: #2196F3;
+    color: white;
+}
+
+/* Dark Mode Support */
+.dark-mode {
+    background-color: #121212;
+    color: #f0f0f0;
+}
+
+.dark-mode .container {
+    background-color: #1e1e1e;
+}
+
+.dark-mode .options-container,
+.dark-mode .questions-list {
+    background-color: #2c2c2c;
+}
+
+.dark-mode input, 
+.dark-mode textarea {
+    background-color: #333;
+    color: #fff;
+    border-color: #555;
+}
+
+.dark-mode #questionsList li {
+    background-color: #333;
+}
+
+.dark-mode h1,
+.dark-mode h2 {
+    color: #1abc9c;
+}
+
+.dark-mode .header,
+.dark-mode .header-card {
+    background-color: #333;
+}
+
+@media (max-width: 768px) {
+    .container {
+        width: 90%;
+        padding: 20px;
+    }
+    
+    h1 {
+        font-size: 24px;
+    }
+    
+    .option-group {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .option-group input[type="radio"] {
+        margin-bottom: 10px;
+    }
+    
+    .buttons {
+        flex-direction: column;
+    }
+    
+    .add-btn, .finish-btn {
+        width: 100%;
+        margin-bottom: 15px;
+    }
+}
