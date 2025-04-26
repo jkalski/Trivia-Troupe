@@ -1,5 +1,6 @@
 body {
     background-color: #fdf6e3;
+    max-height: 100vh;
 }
 
 li {
@@ -54,9 +55,12 @@ button {
 .question {
     display: flex;
     justify-content: center;
-    font-size: 48px;
+    font-size: 40px;
     font-weight: bold;
-    text-decoration: underline;
+    text-align: center;
+    word-wrap: break-word;
+    white-space: normal;
+    max-width: 50%;
 }
 
 .progressbar-timer {
@@ -64,6 +68,7 @@ button {
     position: relative;
     width: 50%;
     overflow: hidden;
+    margin-bottom: 0;
 }
 
 .progress-container {
@@ -83,6 +88,7 @@ button {
 }
 
 .answer-container {
+    margin-top: 0;
     width: 80%;
 }
 
@@ -93,7 +99,7 @@ button {
     padding: 40px;
     font-size: 18px;
     font-weight: bold;
-    margin: 10px;
+    margin: 5px;
     border-radius: 10px;
 }
 
@@ -116,6 +122,7 @@ button {
     text-align: center;
     font-size: 18px;
     font-weight: bold;
+    margin-top: 0;
     margin-bottom: 10px;
 }
 
