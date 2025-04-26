@@ -1,137 +1,149 @@
 body {
-    background-color: #fdf6e3;
-    max-height: 100vh;
+  background-color: #fdf6e3;
+  max-height: 100vh;
 }
 
 li {
-    list-style-type: none;
+  list-style-type: none;
 }
 
 ul {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-    padding: 0;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding: 0;
 }
 
 div {
-    margin: 20px;
+  margin: 20px;
 }
 
 button {
-    cursor: pointer;
-    border: none;
-    width: 60%;
-    padding: 20px 0px 20px 0px;
-    outline: 4px solid black; /* White border around the categories */
-    border-radius: 15px;
-    font-size: 36px;
+  cursor: pointer;
+  border: none;
+  width: 60%;
+  padding: 20px 0px 20px 0px;
+  outline: 4px solid black; /* White border around the categories */
+  border-radius: 15px;
+  font-size: 36px;
 }
 
 /* Timer & Score Styling */
 .header-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0;
 }
 
 .header-container > div {
-    font-size: 24px;
-    font-weight: bold;
-    color: #228B22;
+  font-size: 24px;
+  font-weight: bold;
+  color: #228b22;
 }
 
 /* Question + Countdown Timer + Answer Choices Styling */
 .container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 .question {
-    display: flex;
-    justify-content: center;
-    font-size: 40px;
-    font-weight: bold;
-    text-align: center;
-    word-wrap: break-word;
-    white-space: normal;
-    max-width: 50%;
+  display: flex;
+  justify-content: center;
+  font-size: 40px;
+  font-weight: bold;
+  text-align: center;
+  word-wrap: break-word;
+  white-space: normal;
+  max-width: 50%;
 }
 
 .progressbar-timer {
-    display: flex;
-    position: relative;
-    width: 50%;
-    overflow: hidden;
-    margin-bottom: 0;
+  display: flex;
+  position: relative;
+  width: 50%;
+  overflow: hidden;
+  margin-bottom: 0;
 }
 
 .progress-container {
-    width: 100%;
-    height: 100%;
-    border-top: 3px dashed black;
-    transition: width linear;
+  width: 100%;
+  height: 100%;
+  border-top: 3px dashed black;
+  transition: width linear;
+}
+
+.dark-mode .progress-container {
+  border-top: 3px dashed white;
 }
 
 .slider {
-    position: absolute;
-    top: -4px;
-    right: 0;
-    height: 8px;
-    width: 8px;
-    background-color: black;
+  position: absolute;
+  top: -4px;
+  right: 0;
+  height: 8px;
+  width: 8px;
+  background-color: black;
+}
+
+.dark-mode .slider {
+  background-color: white;
 }
 
 .answer-container {
-    margin-top: 0;
-    width: 80%;
+  margin-top: 0;
+  width: 80%;
 }
 
 .answer-container > ul > button {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 40px;
-    font-size: 18px;
-    font-weight: bold;
-    margin: 5px;
-    border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+  font-size: 18px;
+  font-weight: bold;
+  margin: 5px;
+  border-radius: 10px;
 }
 
-#answer-container :nth-child(1), .answer1 {
-    background-color: #FFD700;
+#answer-container :nth-child(1),
+.answer1 {
+  background-color: #ffd700;
 }
 
-#answer-container :nth-child(2), .answer2 {
-    background-color: #E46F6F;
+#answer-container :nth-child(2),
+.answer2 {
+  background-color: #e46f6f;
 }
 
-#answer-container :nth-child(3), .answer3 {
-    background-color: orange;
+#answer-container :nth-child(3),
+.answer3 {
+  background-color: orange;
 }
 
-#answer-container :nth-child(4), .answer4 {
-    background-color: white;
-} 
+#answer-container :nth-child(4),
+.answer4 {
+  background-color: white;
+}
 .category-display {
-    text-align: center;
-    font-size: 18px;
-    font-weight: bold;
-    margin-top: 0;
-    margin-bottom: 10px;
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 0;
+  margin-bottom: 10px;
 }
 
 .dark-mode {
-    background-color: #121212;
-    color: #f0f0f0;
-  }
-  
-  .dark-mode .header,
-  .dark-mode .header-card {
-    background-color: #333;
-  }
+  background-color: #121212;
+  color: #f0f0f0;
+}
+
+.dark-mode .header,
+.dark-mode .header-card {
+  background-color: #333;
+}
