@@ -71,7 +71,7 @@ body {
     text-align: center;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
     outline: 4px solid black; 
-    border-radius: 15px; /
+    border-radius: 15px; 
 
 }
 
@@ -113,7 +113,10 @@ td {
 
 .button-container {
     text-align: center;
-    margin-top: -430px;
+    margin-top: 5rem;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    outline: 3px solid black; 
+    border-radius: 15px; 
   }
   
   .home-button {
