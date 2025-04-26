@@ -1,155 +1,163 @@
 body {
-    background-color: #fdf6e3;
-    font-family: "Montserrat", sans-serif;
-    display: flex;
-    justify-content: starts;
-    align-items: center;
-    flex-direction: column;
-    height: 100vh;
-    margin: 0;
+  background-color: #fdf6e3;
+  font-family: "Montserrat", sans-serif;
+  display: flex;
+  justify-content: starts;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+  margin: 0;
 }
 
 .header {
-    position: fixed;
-    right: 0;
-    top: 0;
-    left: 0;
-    padding: 10px 20px;
-    background: #1abc9c;
-    color: white;
-    font-size: 16px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    z-index: 1000;
-  }
-
-  .header-left {
-    font-weight: bold;
-  }
-
-  .header-right a {
-    margin-left: 20px;
-    color: white;
-    text-decoration: none;
-    font-weight: 500;
-    transition: color 0.3s ease;
-  }
-
-  .header-right a:hover {
-    color: red; 
-  }
-
-  .header-card {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 3%;
-    margin: auto;
-    background: #1abc9c;
+  position: fixed;
+  right: 0;
+  top: 0;
+  left: 0;
+  padding: 10px 20px;
+  background: #1abc9c;
+  color: white;
+  font-size: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1000;
 }
 
+.header-left {
+  font-weight: bold;
+}
+
+.header-right a {
+  margin-left: 20px;
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.header-right a:hover {
+  color: red;
+}
+
+.header-card {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3%;
+  margin: auto;
+  background: #1abc9c;
+}
 
 /*Centers the Final Score ~ 1/4 from the Top */
 .finalScore {
-    margin-top: 25vh;
-    margin-bottom: 50px;
-    font-family: 'Times New Roman', Times, serif;
-    font-size: 2rem;
-    font-weight: bold;
-    font-size: 64px;
-    text-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  margin-top: 25vh;
+  margin-bottom: 50px;
+  font-family: "Times New Roman", Times, serif;
+  font-size: 2rem;
+  font-weight: bold;
+  font-size: 64px;
+  text-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
 }
-
 
 /* Table Styling */
 .score-table {
-    margin-top: 30px;
-    width: 60%;
-    border-collapse: collapse;
-    text-align: center;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-    outline: 4px solid black; 
-    border-radius: 15px; 
+  margin-top: 30px;
+  width: 60%;
+  border-collapse: collapse;
+  text-align: center;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  outline: 5px solid black;
+  border-radius: 12px;
+}
 
+.dark-mode .score-table {
+  outline: 5px solid white;
 }
 
 th {
-    background-color: white;
-    font-size: 36px;
+  background-color: white;
+  font-size: 30px;
+}
+
+.dark-mode th {
+  color: black;
+  background-color: #1abc9c;
 }
 
 td {
-    background-color: #D3D3D3;
-    font-size: 36px;
+  background-color: #d3d3d3;
+  font-size: 36px;
 }
 
+.dark-mode td {
+  background-color: #555;
+}
 
 /* For Button */
 #returnHome {
-    margin-top: 1rem;
-    border-radius: 5px;
-    padding: 0.5rem;
-    background-color: lightblue;
-    color: orangered;
+  margin-top: 1rem;
+  border-radius: 5px;
+  padding: 0.5rem;
+  background-color: lightblue;
+  color: orangered;
 }
 
 @keyframes float {
-    0% {
-        transform: translateY(0);
-    }
-    50% {
-        transform: translateY(-5px); /* Move up */
-    }
-    100% {
-        transform: translateY(0); /* Return to the original position */
-    }
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px); /* Move up */
+  }
+  100% {
+    transform: translateY(0); /* Return to the original position */
+  }
 }
 
 .score-table {
-    animation: float 2s ease-in-out infinite; 
+  animation: float 2s ease-in-out infinite;
 }
 
 .button-container {
-    text-align: center;
-    margin-top: 5rem;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-    outline: 3px solid black; 
-    border-radius: 15px; 
-  }
-  
-  .home-button {
-    background-color: #1abc9c;
-    color: white;
-    text-decoration: none;
-    font-size: 18px;
-    padding: 15px 30px;
-    border-radius: 8px;
-    display: inline-block;
-    transition: background-color 0.3s ease;
-  }
-  
-  .home-button:hover {
-    background-color: #16a085; /* darker teal */
-  }
+  text-align: center;
+  margin-top: 5rem;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  outline: 3px solid black;
+  border-radius: 15px;
+}
 
-  .dark-mode {
-    background-color: #121212;
-    color: #f0f0f0;
-  }
-  
-  .dark-mode .header,
-  .dark-mode .header-card {
-    background-color: #333;
-  }
-  
-  .dark-mode .team-card,
-  .dark-mode .tutorial-box,
-  .dark-mode .category-select,
-  .dark-mode .history,
-  .dark-mode .tutorial {
-    background-color: #1e1e1e;
-    color: #fff;
-  }
-  
+.home-button {
+  background-color: #1abc9c;
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+  padding: 15px 30px;
+  border-radius: 8px;
+  display: inline-block;
+  transition: background-color 0.3s ease;
+}
+
+.home-button:hover {
+  background-color: #16a085; /* darker teal */
+}
+
+.dark-mode {
+  background-color: #121212;
+  color: #f0f0f0;
+}
+
+.dark-mode .header,
+.dark-mode .header-card {
+  background-color: #333;
+}
+
+.dark-mode .team-card,
+.dark-mode .tutorial-box,
+.dark-mode .category-select,
+.dark-mode .history,
+.dark-mode .tutorial {
+  background-color: #1e1e1e;
+  color: #fff;
+}
