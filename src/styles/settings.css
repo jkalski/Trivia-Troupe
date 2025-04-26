@@ -1,224 +1,276 @@
 /* General Body Styling */
 body {
-    margin: 0;
-    font-family: "Montserrat", sans-serif;
-    background-color: #fdf6e3;
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
-    color: #333;
-  }
-  
-  /* Header Styling */
-  .header {
-    position: fixed;
-    right: 0;
-    top: 0;
-    left: 0;
-    padding: 10px 20px;
-    background: #1abc9c;
-    color: white;
-    font-size: 16px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    z-index: 1000;
-  }
-  
-  .header-left {
-    font-weight: bold;
-  }
-  
-  .header-right a {
-    margin-left: 20px;
-    color: white;
-    text-decoration: none;
-    font-weight: 500;
-    transition: color 0.3s ease;
-  }
-  
-  .header-right a:hover {
-    color: #ff6b6b;
-  }
-  
-  /* Header Card */
-  .header-card {
-    background: #1abc9c;
-    color: white;
-    text-align: center;
-    padding: 15px;
-    font-size: 18px;
-    position: relative;
-    margin-top: auto;
-  }
-  
-  /* Main Settings Container */
-  .settings-container {
-    text-align: center;
-    max-width: 700px;
-    margin: auto;
-    margin-top: 80px;
-    margin-bottom: 30px;
-    padding: 40px 100px;
-    flex: 1;
-    background: #fff;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-    border-radius: 12px;
-  }
-  
-  .settings-container h1 {
-    font-size: 36px;
-    margin-bottom: 30px;
-    color: #1abc9c;
-    text-align: center;
-  }
-  
-  /* Styling for Each Setting Group */
-  .setting-group {
-    margin-bottom: 30px;
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .setting-group h2 {
-    font-size: 20px;
-    margin-bottom: 30px;
-    color: #333;
-  }
-  
-  .setting-group label {
-    font-weight: 600;
-    margin-bottom: 28px;
-  }
-  
-  .setting-group input[type="text"],
-  .setting-group input[type="password"],
-  .setting-group input[type="range"] {
-    padding: 15px;
-    border-radius: 10px;
-    border: 1px solid #ccc;
-    font-size: 16px;
-  }
-  
-  .setting-group input[type="range"] {
-    width: 100%;
-  }
-  
-  .setting-group.toggle {
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  .save-btn {
-    background-color: #1abc9c;
-    color: white;
-    border: none;
-    padding: 14px 28px;
-    border-radius: 12px;
-    font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
-    display: block;
-    margin: 120px auto 0;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-  }
-  
-  .save-btn:hover {
-    background-color: #159b88;
-    transform: scale(1.05);
-  }
-  
-  /* Dark Mode Styling */
-  body.dark-mode {
-    background-color: #121212;
-    color: #f5f5f5;
-  }
-  
-  body.dark-mode .header {
-    background-color: #333;
-  }
-  
-  body.dark-mode .header-card {
-    background-color: #333;
-  }
-  
-  body.dark-mode .header-right a {
-    color: #f5f5f5;
-  }
-  
-  body.dark-mode .header-right a:hover {
-    color: #ff6b6b;
-  }
-  
-  body.dark-mode .save-btn {
-    background-color: #444;
-  }
+  margin: 0;
+  font-family: "Montserrat", sans-serif;
+  background-color: #fdf6e3;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  color: #333;
+}
 
-  .dark-mode .settings-container {
-    background: #645e5e;
-    
-  }
+/* Header Styling */
+.header {
+  position: fixed;
+  right: 0;
+  top: 0;
+  left: 0;
+  padding: 10px 20px;
+  background: #1abc9c;
+  color: white;
+  font-size: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1000;
+}
 
-  .dark-mode .setting-group h2 {
-    color: #eee7e7;
-  }
-  
-  body.dark-mode .setting-group input[type="text"],
-  body.dark-mode .setting-group input[type="password"],
-  body.dark-mode .setting-group input[type="range"] {
-    background-color: #1e1e1e;
-    color: white;
-    border: 1px solid #555;
-  }
-  
-  /* Toggle Switch Styles */
-  .switch {
-    position: relative;
-    display: inline-block;
-    width: 52px;
-    height: 28px;
-    margin-left: 10px;
-  }
-  
-  .switch input {
-    opacity: 0;
-    width: 0;
-    height: 0;
-  }
-  
-  .slider {
-    position: absolute;
-    cursor: pointer;
-    background-color: #ccc;
-    transition: 0.4s;
-    border-radius: 34px;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-  }
-  
-  .slider:before {
-    position: absolute;
-    content: "";
-    height: 20px;
-    width: 20px;
-    left: 4px;
-    bottom: 4px;
-    background-color: white;
-    transition: 0.4s;
-    border-radius: 50%;
-  }
-  
-  input:checked + .slider {
-    background-color: #1abc9c;
-  }
-  
-  input:checked + .slider:before {
-    transform: translateX(24px);
-  }
-  
+.header-left {
+  font-weight: bold;
+}
+
+.header-right a {
+  margin-left: 20px;
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.header-right a:hover {
+  color: #ff6b6b;
+}
+
+/* Header Card */
+.header-card {
+  background: #1abc9c;
+  color: white;
+  text-align: center;
+  padding: 15px;
+  font-size: 18px;
+  position: relative;
+  margin-top: auto;
+}
+
+/* Main Settings Container */
+.mainContainer {
+  margin-top: 5vh;
+  margin-bottom: 5vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.settings-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px;
+  box-sizing: border-box;
+  text-align: center;
+  max-width: 700px;
+  width: 500px;
+  height: 800px;
+  flex: 1;
+  background: #fff;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+}
+
+.settings-container h1 {
+  font-size: 36px;
+  margin-bottom: 30px;
+  color: #1abc9c;
+  text-align: center;
+}
+
+body.dark-mode .settings-container h1 {
+  color: white;
+}
+
+/* Back Button Styling */
+#backButton {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  position: absolute;
+  align-self: flex-start;
+  margin-bottom: 20px;
+  background-color: #1abc9c;
+  border: none;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  color: white;
+  padding: 5px 10px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+#backButton:hover {
+  background-color: #159b88;
+  transform: scale(1.05);
+}
+
+body.dark-mode #backButton {
+  background-color: #444;
+}
+
+/* Styling for Each Setting Group */
+.setting-group {
+  margin-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center content */
+  width: 100%;
+  max-width: 80%; /* Limit width */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.setting-group h2 {
+  font-size: 20px;
+  margin-bottom: 30px;
+  color: #333;
+}
+
+.setting-group label {
+  font-weight: 600;
+  margin-bottom: 28px;
+}
+
+.setting-group input[type="text"],
+.setting-group input[type="password"],
+.setting-group input[type="range"] {
+  padding: 15px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  max-width: 80%;
+}
+
+.setting-group input[type="range"] {
+  width: 100%;
+  max-width: 100%;
+  display: block;
+}
+
+.setting-group.toggle {
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.save-btn {
+  background-color: #1abc9c;
+  color: white;
+  border: none;
+  padding: 14px 28px;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  display: block;
+  margin: 40px auto 0;
+  position: inherit;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.save-btn:hover {
+  background-color: #159b88;
+  transform: scale(1.05);
+}
+
+/* Dark Mode Styling */
+body.dark-mode {
+  background-color: #121212;
+  color: #f5f5f5;
+}
+
+body.dark-mode .header {
+  background-color: #333;
+}
+
+body.dark-mode .header-card {
+  background-color: #333;
+}
+
+body.dark-mode .header-right a {
+  color: #f5f5f5;
+}
+
+body.dark-mode .header-right a:hover {
+  color: #ff6b6b;
+}
+
+body.dark-mode .save-btn {
+  background-color: #444;
+}
+
+.dark-mode .settings-container {
+  background: #645e5e;
+}
+
+.dark-mode .setting-group h2 {
+  color: #eee7e7;
+}
+
+body.dark-mode .setting-group input[type="text"],
+body.dark-mode .setting-group input[type="password"],
+body.dark-mode .setting-group input[type="range"] {
+  background-color: #1e1e1e;
+  color: white;
+  border: 1px solid #555;
+}
+
+/* Toggle Switch Styles */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 52px;
+  height: 28px;
+  margin-left: 10px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  background-color: #ccc;
+  transition: 0.4s;
+  border-radius: 34px;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 20px;
+  width: 20px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: 0.4s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: #1abc9c;
+}
+
+input:checked + .slider:before {
+  transform: translateX(24px);
+}
+
 /* Styled button for Update Account */
 .setting-group button {
   background-color: #1abc9c;
@@ -249,4 +301,50 @@ body.dark-mode .setting-group button {
 body.dark-mode .setting-group button:hover {
   background-color: #555;
 }
-  
+
+/* Styled button for Update Account */
+.setting-group button {
+  background-color: #1abc9c;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  margin-top: 15px;
+  width: 100%;
+  max-width: 200px;
+  align-self: center;
+}
+
+.setting-group button:hover {
+  background-color: #159b88;
+  transform: scale(1.05);
+}
+
+/* Dark mode styling for the button */
+body.dark-mode .setting-group button {
+  background-color: #444;
+}
+
+body.dark-mode .setting-group button:hover {
+  background-color: #555;
+}
+
+/* Notification styling */
+.notification {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #1abc9c;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+  z-index: 1001;
+  opacity: 1;
+  transition: opacity 0.5s ease;
+}
