@@ -6,54 +6,6 @@
   <script src="./scripts/settings.js" defer></script>
   <title>Settings | TriviaTroupe</title>
   <link rel="stylesheet" href="./styles/settings.css" />
-  <style>
-    /* Styled button for Update Account */
-    .setting-group button {
-      background-color: #1abc9c;
-      color: white;
-      border: none;
-      padding: 12px 24px;
-      border-radius: 10px;
-      font-size: 16px;
-      font-weight: bold;
-      cursor: pointer;
-      transition: background-color 0.3s ease, transform 0.3s ease;
-      margin-top: 15px;
-      width: 100%;
-      max-width: 200px;
-      align-self: center;
-    }
-    
-    .setting-group button:hover {
-      background-color: #159b88;
-      transform: scale(1.05);
-    }
-    
-    /* Dark mode styling for the button */
-    body.dark-mode .setting-group button {
-      background-color: #444;
-    }
-    
-    body.dark-mode .setting-group button:hover {
-      background-color: #555;
-    }
-    
-    /* Notification styling */
-    .notification {
-      position: fixed;
-      bottom: 20px;
-      left: 50%;
-      transform: translateX(-50%);
-      background-color: #1abc9c;
-      color: white;
-      padding: 10px 20px;
-      border-radius: 5px;
-      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
-      z-index: 1001;
-      opacity: 1;
-      transition: opacity 0.5s ease;
-    }
-  </style>
 </head>
 <body>
 
@@ -66,31 +18,34 @@
     </div>
   </div>
 
-  <main class="settings-container">
-    <h1>Settings</h1>
-
-    <div class="setting-group">
-        <h2>Account</h2>
-        <label>Username: <input type="text" placeholder="Enter new username" /></label>
-        <label>Password: <input type="password" placeholder="Enter new password" /></label>
-        <button class="update-account-btn">Update Account</button>
-    </div>
-
-    <div class="setting-group">
-      <label for="volume">Volume</label>
-      <input type="range" id="volume" min="0" max="100" value="50">
-    </div>
-
-    <div class="setting-group toggle">
-        <label for="dark-mode">Dark Mode</label>
-        <label class="switch">
-          <input type="checkbox" id="dark-mode">
-          <span class="slider round"></span>
-        </label>
-      </div>      
-
-    <button class="save-btn">Save Settings</button>
-  </main>
+  <div class="mainContainer">
+    <main class="settings-container">
+      <button id="backButton">← Back</button>
+      <h1>Settings</h1>
+  
+      <div class="setting-group">
+          <h2>Account</h2>
+          <label>Username: <input type="text" placeholder="Enter new username" /></label>
+          <label>Password: <input type="password" placeholder="Enter new password" /></label>
+          <button class="update-account-btn">Update Account</button>
+      </div>
+  
+      <div class="setting-group">
+        <label for="volume">Volume</label>
+        <input type="range" id="volume" min="0" max="100" value="50">
+      </div>
+  
+      <div class="setting-group toggle">
+          <label for="dark-mode">Dark Mode</label>
+          <label class="switch">
+            <input type="checkbox" id="dark-mode">
+            <span class="slider round"></span>
+          </label>
+        </div>      
+  
+      <button class="save-btn">Save Settings</button>
+    </main>
+  </div>
 
 </body>
 <div class="header-card"></div>
