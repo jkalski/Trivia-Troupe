@@ -1,297 +1,295 @@
 body {
-    background-color: #fdf6e3; /*#FDFD96; Pastel Yellow: #acb7db; light purpleish*/
-    font-family: "Montserrat", sans-serif; 
+  background-color: #fdf6e3; /*#FDFD96; Pastel Yellow: #acb7db; light purpleish*/
+  font-family: "Montserrat", sans-serif;
 }
 
 button {
-    cursor: pointer;
-    padding: 10px;
-    font-family: "Montserrat", sans-serif; /* Changed font to Montserrat */
-    font-weight: bold;
+  cursor: pointer;
+  padding: 10px;
+  font-family: "Montserrat", sans-serif; /* Changed font to Montserrat */
+  font-weight: bold;
 }
 
 .header {
-    position: fixed;
-    right: 0;
-    top: 0;
-    left: 0;
-    padding: 10px 20px;
-    background: #1abc9c;
-    color: white;
-    font-size: 16px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    z-index: 1000;
-  }
-
-  .header-left {
-    font-weight: bold;
-  }
-
-  .header-right a {
-    margin-left: 20px;
-    color: white;
-    text-decoration: none;
-    font-weight: 500;
-    transition: color 0.3s ease;
-  }
-
-  .header-right a:hover {
-    color: red; 
-  }
-
-  .header-card {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 3%;
-    margin: auto;
-    background: #1abc9c;
+  position: fixed;
+  right: 0;
+  top: 0;
+  left: 0;
+  padding: 10px 20px;
+  background: #1abc9c;
+  color: white;
+  font-size: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1000;
 }
 
+.header-left {
+  font-weight: bold;
+}
+
+.header-right a {
+  margin-left: 20px;
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.header-right a:hover {
+  color: red;
+}
+
+.header-card {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3%;
+  margin: auto;
+  background: #1abc9c;
+}
 
 /* Welcome Message Styling */
 .welcome-message {
-    text-align: center;
-    font-size: 32px;
-    font-weight: bold;
-    margin-top: 60px;
-    margin-bottom: 40px; 
-    color: #333; 
+  text-align: center;
+  font-size: 32px;
+  font-weight: bold;
+  margin-top: 12vh;
+  margin-bottom: 40px;
+  color: #333;
 }
 
 /* Container to keep Buttons in middle of screen */
 .category-container {
-    background-color: #e6e6e1;
-    display: inline-block; /* Makes container adjust to content width */
-    justify-content: center;
-    align-items: center; /* Centers the items horizontally and vertically */
-    flex-direction: column;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    padding: 40px; /* Added padding to create space around buttons */
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Adjusted shadow */
-    border: 2px solid black; /* Added black border */
-    text-align: center; /* Centers the text inside the container */
-    border-radius: 15px; /* Rounded the edges of the container */
+  background-color: #e6e6e1;
+  display: inline-block; /* Makes container adjust to content width */
+  justify-content: center;
+  align-items: center; /* Centers the items horizontally and vertically */
+  flex-direction: column;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 40px; /* Added padding to create space around buttons */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Adjusted shadow */
+  border: 2px solid black; /* Added black border */
+  text-align: center; /* Centers the text inside the container */
+  border-radius: 15px; /* Rounded the edges of the container */
 }
 
 /* Affects Spacing of each button */
 .category-container > div {
-    padding: 20px 0; /* Adjust padding to give space between buttons */
-    width: 100%;
+  padding: 20px 0; /* Adjust padding to give space between buttons */
+  width: 100%;
 }
 
 /* Button Specific Styling */
 .tutorial-btn {
-    background: #B3EBF2;
-    border: 2px solid black; /* Added black border */
-    width: 100%;
-    text-align: center; /* Centers text inside the button */
-    font-family: "Montserrat", sans-serif; /* Changed font to Montserrat */
-    font-size: 48px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Adjusted shadow */
-    border-radius: 10px; /* Rounded edges of the button */
-    transition: border 0.3s ease; /* Smooth transition for border color change */
+  background: #b3ebf2;
+  border: 2px solid black; /* Added black border */
+  width: 100%;
+  text-align: center; /* Centers text inside the button */
+  font-family: "Montserrat", sans-serif; /* Changed font to Montserrat */
+  font-size: 48px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Adjusted shadow */
+  border-radius: 10px; /* Rounded edges of the button */
+  transition: border 0.3s ease; /* Smooth transition for border color change */
 }
 
 .category-select-btn {
-    background: #77DD77;
-    border: 2px solid black; /* Added black border */
-    width: 100%;
-    text-align: center; /* Centers text inside the button */
-    font-family: "Montserrat", sans-serif; /* Changed font to Montserrat */
-    font-size: 48px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Adjusted shadow */
-    border-radius: 10px; /* Rounded edges of the button */
-    transition: border 0.3s ease; /* Smooth transition for border color change */
+  background: #77dd77;
+  border: 2px solid black; /* Added black border */
+  width: 100%;
+  text-align: center; /* Centers text inside the button */
+  font-family: "Montserrat", sans-serif; /* Changed font to Montserrat */
+  font-size: 48px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Adjusted shadow */
+  border-radius: 10px; /* Rounded edges of the button */
+  transition: border 0.3s ease; /* Smooth transition for border color change */
 }
 
 .history-btn {
-    background: #FFD1DC;
-    border: 2px solid black; /* Added black border */
-    width: 100%;
-    text-align: center; /* Centers text inside the button */
-    font-family: "Montserrat", sans-serif; /* Changed font to Montserrat */
-    font-size: 48px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Adjusted shadow */
-    border-radius: 10px; /* Rounded edges of the button */
-    transition: border 0.3s ease; /* Smooth transition for border color change */
+  background: #ffd1dc;
+  border: 2px solid black; /* Added black border */
+  width: 100%;
+  text-align: center; /* Centers text inside the button */
+  font-family: "Montserrat", sans-serif; /* Changed font to Montserrat */
+  font-size: 48px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Adjusted shadow */
+  border-radius: 10px; /* Rounded edges of the button */
+  transition: border 0.3s ease; /* Smooth transition for border color change */
 }
 
 /* Hover effects for category buttons */
 .tutorial-btn:hover {
-    border-color: red; /* Changes border color to red on hover */
+  border-color: red; /* Changes border color to red on hover */
 }
 
 .category-select-btn:hover {
-    border-color: red; /* Changes border color to red on hover */
+  border-color: red; /* Changes border color to red on hover */
 }
 
 .history-btn:hover {
-    border-color: red; /* Changes border color to red on hover */
+  border-color: red; /* Changes border color to red on hover */
 }
 
 /* Tutorial Box */
 .tutorial-box {
-    position: relative;
-    width: 300px;
-    text-align: center;
-    display: none; /* Initially hidden */
-    padding: 120px;
-    border-radius: 10px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-    background-color: white;
-    z-index: 10;
-
+  position: relative;
+  width: 300px;
+  text-align: center;
+  display: none; /* Initially hidden */
+  padding: 120px;
+  border-radius: 10px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  background-color: white;
+  z-index: 10;
 }
 
 .arrow {
-    width: 0;
-    height: 0;
-    border-left: 20px solid transparent;
-    border-right: 20px solid transparent;
-    position: relative;
-    top: -20px;
+  width: 0;
+  height: 0;
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  position: relative;
+  top: -20px;
 }
 
 .arrow-top {
-    border-bottom: 20px solid black;
-    left: 50%;
-    transform: translateX(-50%);
+  border-bottom: 20px solid black;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .arrow-left {
-    border-right: 20px solid black;
-    left: -20px;
-    top: 300px;
-    transform: translateY(-50%);
+  border-right: 20px solid black;
+  left: -20px;
+  top: 300px;
+  transform: translateY(-50%);
 }
 
 .arrow-right {
-    border-left: 20px solid black;
-    right: -20px;
-    top: 50%;
-    transform: translateY(-50%);
+  border-left: 20px solid black;
+  right: -20px;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 /* Next Button Styling */
 .next-btn {
-    padding: 10px 20px;
-    background-color: #B3EBF2;
-    border: 2px solid black;
-    border-radius: 10px;
-    cursor: pointer;
-    font-size: 16px;
-    width: 100%;
-    text-align: center;
+  padding: 10px 20px;
+  background-color: #b3ebf2;
+  border: 2px solid black;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  width: 100%;
+  text-align: center;
 }
 
 .next-btn:hover {
-    background-color: #77DD77;
+  background-color: #77dd77;
 }
 
 /* Positioning Tutorial Boxes Near Category Container */
 
-
 .tutorial-box:nth-child(1) {
-    top: -150px; /* First box positioned above the category container */
-    left: 50%; /* Centered horizontally */
-    transform: translateX(-50%);
+  top: -150px; /* First box positioned above the category container */
+  left: 50%; /* Centered horizontally */
+  transform: translateX(-50%);
 }
 
 .tutorial-box:nth-child(2) {
-    top: 300px; /* Positioned just below the first box */
-    left: 200px; /* Positioned to the left of the History button */
+  top: 300px; /* Positioned just below the first box */
+  left: 200px; /* Positioned to the left of the History button */
 }
 
 .tutorial-box:nth-child(3) {
-    top: 150px; /* Positioned at the same vertical level as the second box */
-    right: -1150px; /* Positioned to the right of the Category Select button */
+  top: 150px; /* Positioned at the same vertical level as the second box */
+  right: -1150px; /* Positioned to the right of the Category Select button */
 }
 
 /* Floating animation */
 @keyframes float {
-    0% {
-        transform: translateY(0);
-    }
-    50% {
-        transform: translateY(-5px); /* Move up */
-    }
-    100% {
-        transform: translateY(0); /* Return to the original position */
-    }
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px); /* Move up */
+  }
+  100% {
+    transform: translateY(0); /* Return to the original position */
+  }
 }
 
 /* Apply the floating animation to the buttons */
-.tutorial-btn, .category-select-btn, .history-btn {
-    animation: float 2s ease-in-out infinite; /* Floating effect every 2 seconds */
+.tutorial-btn,
+.category-select-btn,
+.history-btn {
+  animation: float 2s ease-in-out infinite; /* Floating effect every 2 seconds */
 }
 
 .dark-mode {
-    background-color: #121212;
-    color: #f0f0f0;
+  background-color: #121212;
+  color: #f0f0f0;
 }
 
 .dark-mode .header,
 .dark-mode .header-card {
-    background-color: #333;
+  background-color: #333;
 }
 
 .dark-mode .tutorial-box,
 .dark-mode .category-container {
-    background-color: #1e1e1e;
-    color: #fff;
-    border-color: #555;
+  background-color: #1e1e1e;
+  color: #fff;
+  border-color: #555;
 }
 
 /* Dark-mode button styling */
 .dark-mode .tutorial-btn {
-    background: #5DAEA7; /* Muted cyan */
-    color: #fff;
-    border-color: #888;
+  background: #5daea7; /* Muted cyan */
+  color: #fff;
+  border-color: #888;
 }
 
 .dark-mode .category-select-btn {
-    background: #789262; /* Muted green */
-    color: #fff;
-    border-color: #888;
+  background: #789262; /* Muted green */
+  color: #fff;
+  border-color: #888;
 }
 
 .dark-mode .history-btn {
-    background: #A3676A; /* Muted pink/coral */
-    color: #fff;
-    border-color: #888;
+  background: #a3676a; /* Muted pink/coral */
+  color: #fff;
+  border-color: #888;
 }
 
 .dark-mode .next-btn {
-    background-color: #444;
-    border-color: #999;
-    color: #fff;
+  background-color: #444;
+  border-color: #999;
+  color: #fff;
 }
 
 .dark-mode .tutorial-btn:hover {
-    border-color: red; /* Changes border color to red on hover */
+  border-color: red; /* Changes border color to red on hover */
 }
 
 .dark-mode .category-select-btn:hover {
-    border-color: red; /* Changes border color to red on hover */
+  border-color: red; /* Changes border color to red on hover */
 }
 
 .dark-mode .history-btn:hover {
-    border-color: red; /* Changes border color to red on hover */
+  border-color: red; /* Changes border color to red on hover */
 }
 
 .dark-mode .welcome-message {
-    text-align: center;
-    font-size: 32px;
-    font-weight: bold;
-    margin-top: 60px;
-    margin-bottom: 40px; 
-    color: #f0ebeb; 
+  text-align: center;
+  font-size: 32px;
+  font-weight: bold;
+  margin-top: 60px;
+  margin-bottom: 40px;
+  color: #f0ebeb;
 }
-  
