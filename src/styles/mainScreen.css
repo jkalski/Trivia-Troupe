@@ -198,7 +198,7 @@ button {
 
 /* Hover Effect */
 button:hover {
-  outline: 4px solid green;
+  outline: 4px solid red;
   transform: scale(1.05);
 }
 
