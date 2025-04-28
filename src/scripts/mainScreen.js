@@ -29,17 +29,37 @@ function generateCarouselSlides(categories) {
   sliderInner.innerHTML = ""; //Clear any existing slides
 
   let angle = 360 / categories.length;
+  let autoRotateInterval;
+
+  //Function to start auto-rotation
+  function startAutoRotation() {
+    //Clear previous interval
+    if (autoRotateInterval) {
+      clearInterval(autoRotateInterval);
+    }
+
+    //Set a new interval for auto rotation
+    autoRotateInterval = setInterval(() => {
+      angle -= 90; //Adjust angle for continuous rotation
+      sliderInner.style.transform = `rotateY(${angle}deg)`;
+    }, 5000); //Interval of 5000ms
+  }
 
   //Arrow Manipulation
   document.getElementById("leftArrow").addEventListener("click", () => {
     angle += 90;
     sliderInner.style.transform = `rotateY(${angle}deg)`;
-    console.log("clicked");
+
+    //Restart auto-rotation after arrow clicked
+    startAutoRotation();
   });
 
   document.getElementById("rightArrow").addEventListener("click", () => {
     angle -= 90;
     sliderInner.style.transform = `rotateY(${angle}deg)`;
+
+    //Restart auto-rotation after arrow clicked
+    startAutoRotation();
   });
 
   categories.forEach((category, i) => {
@@ -54,11 +74,8 @@ function generateCarouselSlides(categories) {
     slide.appendChild(button);
     sliderInner.appendChild(slide);
   });
-  // Auto-rotation every 5 seconds (5000 milliseconds)
-  setInterval(() => {
-    angle -= 90; // Adjust angle for continuous rotation (you can change the increment value for faster/slower rotation)
-    sliderInner.style.transform = `rotateY(${angle}deg)`;
-  }, 5000); // Interval of 3000ms (3 seconds)
+  // Start auto rotation
+  startAutoRotation();
 }
 
 document.addEventListener("DOMContentLoaded", () => {
