@@ -26,7 +26,7 @@ fetch(fetchUrl)
   .then((data) => {
     questions = data;
     console.log(
-      `Questions for category "${selectedCategory}" loaded:`,
+      `Questions for ${customCategoryId ? 'custom category' : 'category'} "${selectedCategory}" loaded:`,
       questions
     );
 
@@ -179,7 +179,7 @@ function fetchQA() {
   const answerContainer = document.getElementById("answer-container");
   answerContainer.innerHTML = "";
   answers.forEach((answer) => {
-    answerContainer.innerHTML += `<button class="answer" data-answer="${answer}"onclick=" checkCorrectAnswer(this)">${answer}</button>`;
+    answerContainer.innerHTML += `<button class="answer" data-answer="${answer}" onclick="checkCorrectAnswer(this)">${answer}</button>`;
   });
 
   // Reset slider animation

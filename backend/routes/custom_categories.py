@@ -101,9 +101,9 @@ def add_question_to_category(category_id):
     except:
         return jsonify({"error": "Invalid category ID"}), 400
     
-    # Create the question
+    # Create the question with standard schema
     question = {
-        "question": question_text,
+        "question_text": question_text,  
         "options": options,
         "correct_answer": correct_answer,
         "category": category["name"],

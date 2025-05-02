@@ -1,6 +1,10 @@
 body {
   background-color: #fdf6e3;
   font-family: "Montserrat", sans-serif;
+  min-height: 100vh;  
+  overflow-y: auto;   
+  margin: 0;
+  padding: 0;
 }
 
 h1 {
@@ -68,6 +72,8 @@ ul {
   align-items: center;
   flex-direction: column;
   width: 100%;
+  padding-bottom: 100px; 
+  padding-top: 20px; 
 }
 
 .category-container {
@@ -78,10 +84,10 @@ ul {
   position: relative;
   width: 90%;
   max-width: 1000px;
-  padding: 60px; /* Add padding inside the box */
+  padding: 60px; 
   box-sizing: border-box;
-  outline: 4px solid black; /* White border around the categories */
-  border-radius: 15px; /* Optional: rounded corners for the white box */
+  outline: 4px solid black;
+  border-radius: 15px; 
   background-color: #e6e6e1;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
 }
@@ -181,7 +187,7 @@ button {
   margin: 0 20px;
   user-select: none;
   transition: transform 0.2s ease;
-  z-index: 2; /* Ensures arrows are on top*/
+  z-index: 2; 
 }
 
 #leftArrow {
@@ -234,52 +240,37 @@ button:hover {
 
 /* Corrected dark mode for actual <button> elements */
 .dark-mode button {
-  background: #a3676a; /* Muted red-pink */
+  background: #a3676a; 
   color: #fff;
   border: none;
-  box-shadow: 0 5px 10px rgba(255, 255, 255, 0.2); /* lighter shadow for dark bg */
+  box-shadow: 0 5px 10px rgba(255, 255, 255, 0.2); 
 }
 
 /* Hover effect for dark mode buttons */
 .dark-mode button:hover {
-  outline: 4px solid #90ee90; /* Light green for visibility */
+  outline: 4px solid #90ee90;
   transform: scale(1.05);
 }
-.category-wrapper {
-  margin-bottom: 30px;
-}
 
 .category-wrapper {
   margin-bottom: 30px;
 }
 
-.delete-btn {
-  background-color: #e74c3c;
-  color: white;
+.custom-category-button {
+  background: #3498db;
   border: none;
-  padding: 8px 15px;  
-  border-radius: 5px;  
-  font-size: 14px;     
-  font-weight: 500;    
+  color: white;
+  height: 80px;
+  width: 100%;
+  border-radius: 10px;
+  font-size: 20px;
   cursor: pointer;
-  display: inline-block;  
-  margin: 10px auto 0;
-  transition: background-color 0.3s ease, transform 0.3s ease;
-  box-shadow: 0 3px 8px rgba(231, 76, 60, 0.3);  
-}
-.delete-btn:hover {
-  background-color: #c0392b;
-  transform: scale(1.05);  
-  box-shadow: 0 4px 12px rgba(231, 76, 60, 0.4); 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  margin: 0;
 }
 
-/* Dark mode styling for delete button */
-.dark-mode .delete-btn {
-  background-color: #c0392b;
-  box-shadow: 0 3px 8px rgba(192, 57, 43, 0.4);
-}
-
-.dark-mode .delete-btn:hover {
-  background-color: #e74c3c;
-  box-shadow: 0 4px 12px rgba(231, 76, 60, 0.5);
+.custom-category-button:hover {
+  background: #2980b9;
+  transform: scale(1.05);
 }
