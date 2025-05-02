@@ -245,3 +245,41 @@ button:hover {
   outline: 4px solid #90ee90; /* Light green for visibility */
   transform: scale(1.05);
 }
+.category-wrapper {
+  margin-bottom: 30px;
+}
+
+.category-wrapper {
+  margin-bottom: 30px;
+}
+
+.delete-btn {
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  padding: 8px 15px;  
+  border-radius: 5px;  
+  font-size: 14px;     
+  font-weight: 500;    
+  cursor: pointer;
+  display: inline-block;  
+  margin: 10px auto 0;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  box-shadow: 0 3px 8px rgba(231, 76, 60, 0.3);  
+}
+.delete-btn:hover {
+  background-color: #c0392b;
+  transform: scale(1.05);  
+  box-shadow: 0 4px 12px rgba(231, 76, 60, 0.4); 
+}
+
+/* Dark mode styling for delete button */
+.dark-mode .delete-btn {
+  background-color: #c0392b;
+  box-shadow: 0 3px 8px rgba(192, 57, 43, 0.4);
+}
+
+.dark-mode .delete-btn:hover {
+  background-color: #e74c3c;
+  box-shadow: 0 4px 12px rgba(231, 76, 60, 0.5);
+}

@@ -1,3 +1,37 @@
+// Delete category function
+async function deleteCategory(categoryId, categoryName) {
+  const username = localStorage.getItem('username');
+  
+  if (!username) {
+    alert('Please log in to delete categories');
+    return;
+  }
+  
+  // Confirm deletion
+  if (!confirm(`Are you sure you want to delete the category "${categoryName}"? This will also delete all questions in this category.`)) {
+    return;
+  }
+  
+  try {
+    const response = await fetch(`http://127.0.0.1:5000/custom-categories/${categoryId}?username=${username}`, {
+      method: 'DELETE'
+    });
+    
+    const data = await response.json();
+    
+    if (response.ok) {
+      alert(`Category deleted successfully!\n${data.questions_deleted} questions were also deleted.`);
+      // Refresh the page to update the categories
+      window.location.reload();
+    } else {
+      alert(data.error || 'Failed to delete category');
+    }
+  } catch (error) {
+    console.error('Error deleting category:', error);
+    alert('Server error. Please try again later.');
+  }
+}
+
 // Get all category buttons
 const categoryButtons = document.querySelectorAll(
   ".category-container .category button"
@@ -154,10 +188,15 @@ document.addEventListener("DOMContentLoaded", () => {
         customHeader.style.marginTop = "30px";
         document.querySelector(".container").appendChild(customHeader);
 
-        const customCategoryContainer = document.createElement("div");
-        customCategoryContainer.className = "category";
-
         customCategories.forEach((category) => {
+          const categoryWrapper = document.createElement("div");
+          categoryWrapper.className = "category-wrapper";
+          categoryWrapper.style.marginBottom = "20px";
+          
+          // Create a container for the main category button
+          const customCategoryContainer = document.createElement("div");
+          customCategoryContainer.className = "category";
+          
           const button = document.createElement("button");
           button.textContent = category.name;
 
@@ -174,16 +213,36 @@ document.addEventListener("DOMContentLoaded", () => {
           });
 
           customCategoryContainer.appendChild(button);
+          
+          // Create a container for the custom categories
+          const categoryContainerWrapper = document.createElement("div");
+          categoryContainerWrapper.className = "category-container";
+          categoryContainerWrapper.appendChild(customCategoryContainer);
+          
+          // Add the main button container to wrapper
+          categoryWrapper.appendChild(categoryContainerWrapper);
+          
+          // Add delete button container BELOW the category button (only if user owns it)
+          if (category.creator === username) {
+            const deleteContainer = document.createElement("div");
+            deleteContainer.style.display = "flex";
+            deleteContainer.style.justifyContent = "center";
+            deleteContainer.style.marginTop = "10px";
+            
+            const deleteBtn = document.createElement("button");
+            deleteBtn.textContent = "Delete Category";
+            deleteBtn.classList.add("delete-btn");
+            deleteBtn.onclick = (e) => {
+              e.stopPropagation();
+              deleteCategory(category._id, category.name);
+            };
+            
+            deleteContainer.appendChild(deleteBtn);
+            categoryWrapper.appendChild(deleteContainer);
+          }
+          
+          document.querySelector(".container").appendChild(categoryWrapper);
         });
-
-        // Create a container for the custom categories similar to existing categories
-        const customCategoriesWrapper = document.createElement("div");
-        customCategoriesWrapper.className = "category-container";
-        customCategoriesWrapper.appendChild(customCategoryContainer);
-
-        document
-          .querySelector(".container")
-          .appendChild(customCategoriesWrapper);
       }
     } catch (error) {
       console.error("Error loading custom categories:", error);

@@ -1,4 +1,3 @@
-# Create a new route file: routes/custom_categories.py
 from flask import Blueprint, request, jsonify
 from pymongo import MongoClient
 from bson.objectid import ObjectId
@@ -118,3 +117,38 @@ def add_question_to_category(category_id):
         "message": "Question added successfully",
         "question_id": str(result.inserted_id)
     }), 201
+
+@custom_category_routes.route('/custom-categories/<category_id>', methods=['DELETE'])
+def delete_custom_category(category_id):
+    username = request.args.get('username')
+    
+    if not username:
+        return jsonify({"error": "Username is required"}), 400
+    
+    try:
+        # Find the category
+        category = custom_categories_collection.find_one({"_id": ObjectId(category_id)})
+        
+        if not category:
+            return jsonify({"error": "Category not found"}), 404
+        
+        # Check if user is the creator of the category
+        if category["creator"] != username:
+            return jsonify({"error": "You can only delete your own categories"}), 403
+        
+        # Delete all questions associated with this category
+        questions_result = questions_collection.delete_many({"custom_category_id": category_id})
+        
+        # Delete the category itself
+        category_result = custom_categories_collection.delete_one({"_id": ObjectId(category_id)})
+        
+        if category_result.deleted_count == 1:
+            return jsonify({
+                "message": "Category deleted successfully",
+                "questions_deleted": questions_result.deleted_count
+            }), 200
+        else:
+            return jsonify({"error": "Failed to delete category"}), 500
+            
+    except Exception as e:
+        return jsonify({"error": f"Invalid category ID: {str(e)}"}), 400
