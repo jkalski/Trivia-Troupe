@@ -28,8 +28,15 @@ function generateCarouselSlides(categories) {
   const sliderInner = document.getElementById("carousel");
   sliderInner.innerHTML = ""; //Clear any existing slides
 
-  let angle = 360 / categories.length;
+  let anglePerSlide = 360 / categories.length;
+  let radius = 150 / Math.tan(Math.PI / categories.length);
+
+  let currentRotation = 0;
   let autoRotateInterval;
+
+  function updateRotation() {
+    sliderInner.style.transform = `rotateY(${currentRotation}deg)`;
+  }
 
   //Function to start auto-rotation
   function startAutoRotation() {
@@ -40,24 +47,25 @@ function generateCarouselSlides(categories) {
 
     //Set a new interval for auto rotation
     autoRotateInterval = setInterval(() => {
-      angle -= 90; //Adjust angle for continuous rotation
-      sliderInner.style.transform = `rotateY(${angle}deg)`;
+      currentRotation -= anglePerSlide;
+      updateRotation();
     }, 5000); //Interval of 5000ms
   }
 
   //Arrow Manipulation
   document.getElementById("leftArrow").addEventListener("click", () => {
-    angle += 90;
-    sliderInner.style.transform = `rotateY(${angle}deg)`;
+    currentRotation += anglePerSlide;
+
+    updateRotation();
 
     //Restart auto-rotation after arrow clicked
     startAutoRotation();
   });
 
   document.getElementById("rightArrow").addEventListener("click", () => {
-    angle -= 90;
-    sliderInner.style.transform = `rotateY(${angle}deg)`;
+    currentRotation -= anglePerSlide;
 
+    updateRotation();
     //Restart auto-rotation after arrow clicked
     startAutoRotation();
   });
@@ -65,7 +73,9 @@ function generateCarouselSlides(categories) {
   categories.forEach((category, i) => {
     const slide = document.createElement("div");
     slide.className = "slide";
-    slide.style.transform = `rotateY(${i * angle}deg) translateZ(150px)`;
+    slide.style.transform = `rotateY(${
+      i * anglePerSlide
+    }deg) translateZ(${radius}px)`;
 
     const button = document.createElement("button");
     button.textContent = category;
