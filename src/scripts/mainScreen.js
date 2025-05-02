@@ -88,7 +88,7 @@ document.addEventListener("DOMContentLoaded", () => {
     document.body.classList.add("dark-mode");
   }
 
-  // Optional: handle dark mode toggle on pages with a checkbox
+  // handle dark mode toggle on pages with a checkbox
   const toggle = document.getElementById("dark-mode");
   if (toggle) {
     toggle.checked = localStorage.getItem("darkMode") === "enabled";
@@ -109,7 +109,7 @@ document.addEventListener("DOMContentLoaded", () => {
   buttonContainer.className = "button-container";
   buttonContainer.style.display = "flex";
   buttonContainer.style.justifyContent = "center";
-  buttonContainer.style.gap = "30px";  // Add spacing between buttons
+  buttonContainer.style.gap = "30px";  
   buttonContainer.style.marginTop = "30px";
   buttonContainer.style.marginBottom = "30px";
   
@@ -149,7 +149,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       const customCategories = await response.json();
 
-      // Create a simple grid for custom categories
+      // simple grid for custom categories
       if (customCategories.length > 0) {
         const customHeader = document.createElement("h2");
         customHeader.textContent = "Custom Categories";
