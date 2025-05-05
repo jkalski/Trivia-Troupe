@@ -88,6 +88,11 @@ document.addEventListener("DOMContentLoaded", () => {
     document.body.classList.add("dark-mode");
   }
 
+  //Handle back button
+  document.getElementById("backButton").addEventListener("click", () => {
+    window.history.back();
+  });
+
   // handle dark mode toggle on pages with a checkbox
   const toggle = document.getElementById("dark-mode");
   if (toggle) {
@@ -109,17 +114,17 @@ document.addEventListener("DOMContentLoaded", () => {
   buttonContainer.className = "button-container";
   buttonContainer.style.display = "flex";
   buttonContainer.style.justifyContent = "center";
-  buttonContainer.style.gap = "30px";  
+  buttonContainer.style.gap = "30px";
   buttonContainer.style.marginTop = "30px";
   buttonContainer.style.marginBottom = "30px";
-  
+
   const createCategoryButton = document.createElement("button");
   createCategoryButton.textContent = "Create Custom Category";
   createCategoryButton.classList.add("create-category-btn");
   createCategoryButton.addEventListener("click", () => {
     window.location.href = "create-category.html";
   });
-  
+
   const manageCategoriesButton = document.createElement("button");
   manageCategoriesButton.textContent = "Manage Categories";
   manageCategoriesButton.classList.add("create-category-btn");
@@ -129,7 +134,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
   buttonContainer.appendChild(createCategoryButton);
   buttonContainer.appendChild(manageCategoriesButton);
-  document.querySelector(".createCategoryContainer").appendChild(buttonContainer);
+  document
+    .querySelector(".createCategoryContainer")
+    .appendChild(buttonContainer);
 
   // Fetch and display custom categories if user is logged in
   const username = localStorage.getItem("username");
@@ -160,7 +167,8 @@ document.addEventListener("DOMContentLoaded", () => {
         const categoryGrid = document.createElement("div");
         categoryGrid.className = "custom-category-grid";
         categoryGrid.style.display = "grid";
-        categoryGrid.style.gridTemplateColumns = "repeat(auto-fill, minmax(200px, 1fr))";
+        categoryGrid.style.gridTemplateColumns =
+          "repeat(auto-fill, minmax(200px, 1fr))";
         categoryGrid.style.gap = "20px";
         categoryGrid.style.padding = "20px";
         categoryGrid.style.maxWidth = "1200px";
@@ -184,7 +192,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
           categoryGrid.appendChild(button);
         });
-        
+
         document.querySelector(".container").appendChild(categoryGrid);
       }
     } catch (error) {
