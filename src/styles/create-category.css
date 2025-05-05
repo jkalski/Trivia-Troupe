@@ -30,6 +30,30 @@ body {
   transition: color 0.3s ease;
 }
 
+/* Back Button Styling */
+#backButton {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  position: absolute;
+  align-self: flex-start;
+  margin-bottom: 20px;
+  background-color: #1abc9c;
+  border: none;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  color: white;
+  padding: 5px 10px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  margin: 0px 30px;
+}
+#backButton:hover {
+  outline: 4px solid black;
+  transform: scale(1.05);
+}
+
 /* Add custom styles for the form */
 .container {
   max-width: 700px;
