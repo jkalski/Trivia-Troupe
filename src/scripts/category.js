@@ -26,6 +26,10 @@ document.addEventListener('DOMContentLoaded', () => {
     // Handle the "Next" button click to go through the tutorial
     nextButtons.forEach(button => {
         button.addEventListener('click', () => {
+
+            // remove highlight from all buttons
+            [tutorialButton, historyButton[0], categoryButton].forEach(btn => btn.classList.remove('highlight'));
+
             currentStep++;
             if (currentStep < tutorialBoxes.length) {
                 showStep(currentStep);
@@ -38,24 +42,42 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Show the specific tutorial step and position
     function showStep(stepIndex) {
+        const targetElements = [tutorialButton, historyButton[0], categoryButton];
+        const tutorialBox = tutorialBoxes[stepIndex];
+        const arrow = arrows[stepIndex];
+        const target = targetElements[stepIndex];
+
         // Hide all tutorial boxes
         tutorialBoxes.forEach(box => box.style.display = 'none');
-        
-        // Show the current step
-        tutorialBoxes[stepIndex].style.display = 'block';
-        
-        // Reset arrows position and show the correct one
         arrows.forEach(arrow => arrow.classList.remove('arrow-top', 'arrow-left', 'arrow-right'));
-        switch(stepIndex) {
-            case 0:
-                arrows[0].classList.add('arrow-top');
-                break;
-            case 1:
-                arrows[1].classList.add('arrow-left');
-                break;
-            case 2:
-                arrows[2].classList.add('arrow-right');
-                break;
+
+        // Show current tutorial box
+        tutorialBox.style.display = 'block';
+
+        // Highlight target
+        target.classList.add('highlight');
+
+        // Get target position
+        const rect = target.getBoundingClientRect();
+        const boxRect = tutorialBox.getBoundingClientRect();
+
+        // Position tutorial box near the target
+        const offset = 10;
+        if (stepIndex === 0) {
+            tutorialBox.style.position = 'absolute';
+            tutorialBox.style.top = `${window.scrollY + rect.bottom + offset}px`;
+            tutorialBox.styel.left = `${window.scrollX + rect.left}px`;
+            arrow.classList.add('arrow-top');
+        } else if (stepIndex === 1) {
+            tutorialBox.style.position = 'absolute';
+            tutorialBox.style.top = `${window.scrollY + rect.top}px`;
+            tutorialBox.style.left = `${window.scrollX + rect.left - boxRect.width - offset}px`;
+            arrow.classList.add('arrow-right');
+        } else if (stepIndex === 2) {
+            tutorialBox.style.position = 'absolute';
+            tutorialBox.style.top = `${window.scrollY + rect.top}px`;
+            tutorialBox.style.left = `${window.scrollX + rect.right + offset}px`;
+            arrow.classList.add('arrow-left');
         }
     }
 
