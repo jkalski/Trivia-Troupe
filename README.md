@@ -36,7 +36,7 @@ Trivia Troupe is a web trivia game where users can:
   ![Login Screen](./assets/loginScreen.jpg)  
   *Simple and clean login screen*
 
-- Choose from categories like Science, Math, Pop Culture, and more  
+- Choose from categories like Science, Math, Pop Culture, or create your very own category! 
   ![Category Screen](./assets/CategoryScreen.jpg)  
   *A look at how users pick trivia categories*
 
@@ -77,21 +77,20 @@ cd trivia-troupe
 python -m venv venv
 source venv/bin/activate  # On Windows: venv\Scripts\activate
 pip install flask pymongo flask-cors python-dotenv bcrypt
+```
 
 Perfect — here is the **rest of the Getting Started section**, continuing exactly where your snippet left off:
 
-```markdown
 ### Environment Variables
-
+```bash
 Create a `.env` file in the root of the project and add the following:
-
-```
 
 MONGO\_URI=mongodb://localhost:27017/
 
-````
+```
 
 ### Seed the Database
+````
 
 To load some sample trivia questions into your MongoDB:
 
