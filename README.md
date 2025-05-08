@@ -221,22 +221,25 @@ Trivia Troupe is licensed under the MIT License.
 MIT License
 
 Copyright (c) 2025 Trivia Troupe Team
+## License
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+**Ye Olde MIT License**
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
+Hear ye, hear ye!  
+Let it be known across the realms of Computer Science and beyond:
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+Henceforth, permission is granted, free of charge, to any noble soul who happeneth upon this humble Software (henceforth referred to as “The Trivia Troupe”) to use, replicate, alter, conjure, distribute, bequeath, or transmogrify the Software, be it for glory, learning, or sheer amusement.
+
+Thou mayest:
+- Hacketh the code for thine own scholarly quests
+- Mold it into a final project due upon the morrow
+- Share it with fellow knights, scholars, or that one dude who never shows up to group meetings
+
+However, let this scroll bear a solemn warning:  
+**THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND**, express or implied, including (but not limited to) enchantments of merchantability, sorcery of fitness for a particular purpose, or noninfringement of forbidden hexes.
+
+Should chaos ensue, be it in the form of bugs, crashing spells, or thine GPA plunging into the abyss — the authors accept no responsibility, moral, legal, or mystical.
+
+Go forth, brave coder, and may your deployments be ever successful.
+
 ```
