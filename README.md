@@ -45,8 +45,15 @@ Trivia Troupe is a web trivia game where users can:
   *Sample questions from the Pop Culture category*
 
 - View scores after each game
+  ![Score Screen](./assets/ScoreScreen.png)
+  
 - Create your own trivia sets
+  ![CreateScreen](./assets/CategoryCreate.png)
+  ![createQuestion](./assets/QuestionCreate.png)
+  
 - Toggle dark mode
+  ![DarkMode](./assets/DarkModeToggle.png)
+  ![darkModeMain](./assets/DarkModeMainScreen.png)
 
 ### Developer Features
 - Responsive design
@@ -111,3 +118,37 @@ python server.py
 
 Open `src/index.html` in your web browser.
 For a smoother experience, you can also use a local development server like Live Server (VS Code extension) or Python’s built-in HTTP server.
+
+
+## Folder Breakdown
+```bash
+├── assets
+├── backend
+│   ├── config.py
+│   ├── database.py
+│   ├── models
+│   │   ├── question_model.py
+│   │   └── user_model.py
+│   ├── routes
+│   │   ├── custom_categories.py
+│   │   ├── questions.py
+│   │   └── users.py
+│   ├── seed_questions.py
+│   └── server.py
+└── src
+    ├── about.html
+    ├── add-questions.html
+    ├── category.html
+    ├── create-category.html
+    ├── finalScore.html
+    ├── history.html
+    ├── index.html
+    ├── mainScreen.html
+    ├── manage-categories.html
+    ├── questionPage.html
+    ├── scripts
+    ├── settings.html
+    ├── styles
+    └── team.html
+
+```
