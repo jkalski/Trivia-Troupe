@@ -90,8 +90,6 @@ source venv/bin/activate  # On Windows: venv\Scripts\activate
 pip install flask pymongo flask-cors python-dotenv bcrypt
 ```
 
-Perfect — here is the **rest of the Getting Started section**, continuing exactly where your snippet left off:
-
 ### Environment Variables
 ```bash
 Create a `.env` file in the root of the project and add the following:
@@ -121,24 +119,24 @@ python server.py
 ### Frontend
 
 Open `src/index.html` in your web browser.
-For a smoother experience, you can also use a local development server like Live Server (VS Code extension) or Python’s built-in HTTP server.
+For a smoother experience, you can also use a local development server like Live Server (VS Code extension) or Python's built-in HTTP server.
 
 
 ## Folder Breakdown
 ```bash
 ├── assets
 ├── backend
-│   ├── config.py
-│   ├── database.py
-│   ├── models
-│   │   ├── question_model.py
-│   │   └── user_model.py
-│   ├── routes
-│   │   ├── custom_categories.py
-│   │   ├── questions.py
-│   │   └── users.py
-│   ├── seed_questions.py
-│   └── server.py
+│   ├── config.py
+│   ├── database.py
+│   ├── models
+│   │   ├── question_model.py
+│   │   └── user_model.py
+│   ├── routes
+│   │   ├── custom_categories.py
+│   │   ├── questions.py
+│   │   └── users.py
+│   ├── seed_questions.py
+│   └── server.py
 └── src
     ├── about.html
     ├── add-questions.html
@@ -154,5 +152,91 @@ For a smoother experience, you can also use a local development server like Live
     ├── settings.html
     ├── styles
     └── team.html
+```
 
+## API Info
+
+The Trivia Troupe API is a RESTful service built with Flask that manages trivia questions, user accounts, and game data. Below are the key endpoints:
+
+### Authentication
+
+| Endpoint | Method | Description |
+|----------|--------|-------------|
+| `/register` | POST | Register a new user |
+| `/login` | POST | Authenticate a user |
+| `/update-password` | POST | Update a user's password |
+| `/update-username` | POST | Update a user's username |
+
+### Questions
+
+| Endpoint | Method | Description |
+|----------|--------|-------------|
+| `/questions` | GET | Get questions (filter by category with `?category=Science`) |
+| `/questions?custom_category_id={id}` | GET | Get questions from a custom category |
+
+### Custom Categories
+
+| Endpoint | Method | Description |
+|----------|--------|-------------|
+| `/custom-categories` | GET | Get available custom categories |
+| `/custom-categories` | POST | Create a new custom category |
+| `/custom-categories/{category_id}/questions` | POST | Add a question to a custom category |
+| `/custom-categories/{category_id}` | DELETE | Delete a custom category |
+
+### Game History
+
+| Endpoint | Method | Description |
+|----------|--------|-------------|
+| `/history` | GET | Get a user's game history and stats |
+| `/history` | POST | Save a completed game to history |
+
+### Example Requests
+
+#### Get Questions
+```bash
+curl -X GET http://127.0.0.1:5000/questions?category=Science
+```
+
+#### Create Custom Category
+```bash
+curl -X POST http://127.0.0.1:5000/custom-categories \
+  -H "Content-Type: application/json" \
+  -d '{"name": "Movies", "creator": "username", "description": "Movie trivia", "is_public": true}'
+```
+
+#### Save Game History
+```bash
+curl -X POST http://127.0.0.1:5000/history \
+  -H "Content-Type: application/json" \
+  -d '{"username": "username", "category": "Science", "score": 800, "time": "01:45"}'
+```
+
+---
+
+## License
+
+Trivia Troupe is licensed under the MIT License.
+
+```
+MIT License
+
+Copyright (c) 2025 Trivia Troupe Team
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
 ```
