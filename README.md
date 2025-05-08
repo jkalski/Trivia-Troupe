@@ -11,7 +11,6 @@ A fun, browser-based trivia app built by college students! Play games in differe
 - [Features](#features)
 - [Tech Stack](#tech-stack)
 - [Getting Started](#getting-started)
-- [How to Use](#how-to-use)
 - [Folder Breakdown](#folder-breakdown)
 - [API Info](#api-info)
 - [Contributing](#contributing)
@@ -45,8 +44,20 @@ Trivia Troupe is a web trivia game where users can:
   *Sample questions from the Pop Culture category*
 
 - View scores after each game
+  ![Score Screen](./assets/ScoreScreen.png)
+  *Sample of how user is scored*
+  
 - Create your own trivia sets
+  ![CreateScreen](./assets/CategoryCreate.png)
+  *Simple Screen to create a custom category*
+  ![createQuestion](./assets/QuestionCreate.png)
+  *Simple Form to publish questions within the custom category*
+  
 - Toggle dark mode
+  ![DarkMode](./assets/DarkModeToggle.png)
+  *Simple Settings page for Account Info and minor personal adjustments*
+  ![darkModeMain](./assets/DarkModeMainScreen.png)
+  *A sample of the main screen in dark mode*
 
 ### Developer Features
 - Responsive design
@@ -111,3 +122,37 @@ python server.py
 
 Open `src/index.html` in your web browser.
 For a smoother experience, you can also use a local development server like Live Server (VS Code extension) or Python’s built-in HTTP server.
+
+
+## Folder Breakdown
+```bash
+├── assets
+├── backend
+│   ├── config.py
+│   ├── database.py
+│   ├── models
+│   │   ├── question_model.py
+│   │   └── user_model.py
+│   ├── routes
+│   │   ├── custom_categories.py
+│   │   ├── questions.py
+│   │   └── users.py
+│   ├── seed_questions.py
+│   └── server.py
+└── src
+    ├── about.html
+    ├── add-questions.html
+    ├── category.html
+    ├── create-category.html
+    ├── finalScore.html
+    ├── history.html
+    ├── index.html
+    ├── mainScreen.html
+    ├── manage-categories.html
+    ├── questionPage.html
+    ├── scripts
+    ├── settings.html
+    ├── styles
+    └── team.html
+
+```
