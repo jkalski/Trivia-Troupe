@@ -1,3 +1,4 @@
+/* src/styles/team.css */
 body {
   margin: 0;
   font-family: "Montserrat", sans-serif;
@@ -5,7 +6,7 @@ body {
   color: #333;
   display: flex;
   flex-direction: column;
-  min-height: 100vh; /* Ensures the body takes up full screen height */
+  min-height: 100vh;
 }
 
 .header {
@@ -39,112 +40,211 @@ body {
   color: red;
 }
 
-/* Flexbox for content below the header */
-main {
-  flex: 1; /* This makes the main content take up the remaining space */
-  padding-top: 80px; /* Prevents overlap with the fixed header */
-}
-
-.header-card {
-  background: #1abc9c;
-  color: white;
-  text-align: center;
-  padding: 15px;
-  font-size: 18px;
-  position: relative; /* This ensures it stays at the bottom of the page */
-  margin-top: auto; /* This pushes it to the bottom of the screen */
-}
-
+/* Main content */
 .team-container {
-  max-width: 1000px;
-  margin: auto;
+  max-width: 1200px;
+  margin: 80px auto 40px;
   padding: 30px 20px;
   text-align: center;
 }
 
 .team-container h1 {
-  font-size: 36px;
+  font-size: 42px;
   margin-bottom: 20px;
   color: #1abc9c;
+  position: relative;
+  display: inline-block;
 }
 
-.team-container p {
+.team-container h1::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background-color: #1abc9c;
+}
+
+.team-intro {
   font-size: 18px;
-  margin-bottom: 40px;
-}
-
-.team-cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 30px;
-}
-
-.team-card {
-  background-color: #ffffff;
-  padding: 20px;
-  border-radius: 16px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  text-align: center;
-}
-
-.team-card img {
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
-  margin-bottom: 20px;
-}
-
-.team-card h3 {
-  font-size: 20px;
-  color: #1abc9c;
-  margin-bottom: 10px;
-}
-
-.team-card .role {
-  font-size: 16px;
-  font-weight: 500;
-  margin-bottom: 10px;
-}
-
-.team-card p {
-  font-size: 14px;
+  margin-bottom: 50px;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
   line-height: 1.6;
 }
 
+/* Team grid */
+.team-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 30px;
+  margin-bottom: 60px;
+}
+
+/* Team card styling */
+.team-card {
+  background-color: #ffffff;
+  padding: 30px 20px;
+  border-radius: 16px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.team-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Avatar styling */
+.avatar {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-color: #1abc9c;
+  margin: 0 auto 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 36px;
+  font-weight: bold;
+  box-shadow: 0 5px 15px rgba(26, 188, 156, 0.3);
+}
+
+.team-card h3 {
+  font-size: 22px;
+  color: #1abc9c;
+  margin-bottom: 5px;
+}
+
+.role {
+  font-size: 16px;
+  font-weight: 500;
+  color: #555;
+  margin-bottom: 15px;
+}
+
+/* Skills tags */
+.skills {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.skills span {
+  background-color: #f2f2f2;
+  color: #333;
+  font-size: 12px;
+  padding: 5px 10px;
+  border-radius: 20px;
+}
+
+/* Social links */
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.social-links a {
+  color: #555;
+  font-size: 20px;
+  transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+  color: #1abc9c;
+}
+
+/* Footer */
+.team-footer {
+  background-color: #1abc9c;
+  color: white;
+  text-align: center;
+  padding: 15px;
+  margin-top: auto;
+}
+
+.team-footer p {
+  margin: 0;
+  font-size: 14px;
+}
+
+/* Dark mode support */
+.dark-mode {
+  background-color: #121212;
+  color: #f0f0f0;
+}
+
+.dark-mode .team-card {
+  background-color: #222;
+  color: #f0f0f0;
+}
+
+.dark-mode .team-card h3 {
+  color: #1abc9c;
+}
+
+.dark-mode .role {
+  color: #ddd;
+}
+
+.dark-mode .skills span {
+  background-color: #333;
+  color: #f0f0f0;
+}
+
+.dark-mode .social-links a {
+  color: #ddd;
+}
+
+.dark-mode .social-links a:hover {
+  color: #1abc9c;
+}
+
+.dark-mode .header,
+.dark-mode .team-footer {
+  background-color: #333;
+}
+
+/* Responsive adjustments */
 @media (max-width: 768px) {
   .team-container {
-    padding: 30px 10px;
+    padding: 30px 15px;
   }
-
+  
   .team-cards {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 20px;
+  }
+  
+  .team-container h1 {
+    font-size: 32px;
+  }
+  
+  .team-intro {
+    font-size: 16px;
+    margin-bottom: 30px;
   }
 }
 
 @media (max-width: 480px) {
   .team-cards {
     grid-template-columns: 1fr;
+    max-width: 320px;
+    margin-left: auto;
+    margin-right: auto;
   }
-}
-
-.dark-mode {
-  background-color: #121212;
-  color: #f0f0f0;
-}
-
-.dark-mode .header,
-.dark-mode .header-card {
-  background-color: #333;
-}
-
-.dark-mode p {
-  color: black;
-}
-
-.dark-mode h3 {
-  color: #159b88;
-}
-
-.dark-mode .team-card {
-  background-color: #f5f5f5;
+  
+  .avatar {
+    width: 80px;
+    height: 80px;
+    font-size: 28px;
+  }
 }
