@@ -3,6 +3,7 @@ from pymongo import MongoClient
 from dotenv import load_dotenv
 import os
 import bcrypt
+from datetime import datetime
 
 load_dotenv()
 
@@ -28,7 +29,8 @@ def register():
     users_collection.insert_one({
         "username": username,
         "email": email,
-        "password": hashed_pw
+        "password": hashed_pw,
+        "game_history": []  
     })
 
     return jsonify({"message": "User registered successfully"}), 201
@@ -108,3 +110,79 @@ def update_username():
         return jsonify({"message": "Username updated successfully"}), 200
     else:
         return jsonify({"error": "Failed to update username"}), 500
+
+# New routes for history functionality
+
+@user_routes.route('/history', methods=['GET'])
+def get_history():
+    username = request.args.get('username')
+    
+    if not username:
+        return jsonify({"error": "Username is required"}), 400
+    
+    user = users_collection.find_one({"username": username})
+    if not user:
+        return jsonify({"error": "User not found"}), 404
+    
+    # Return game history if it exists, otherwise return empty array
+    history = user.get("game_history", [])
+    
+    # Calculate stats
+    games_played = len(history)
+    max_score = max([game.get("score", 0) for game in history]) if history else 0
+    
+    # Parse time strings and find the minimum
+    best_time = "99:99"
+    if history:
+        for game in history:
+            time_str = game.get("time", "99:99")
+            if time_str < best_time:  # String comparison works for "MM:SS" format
+                best_time = time_str
+        
+        if best_time == "99:99":
+            best_time = "00:00"  # Default if no valid times found
+    else:
+        best_time = "00:00"
+    
+    return jsonify({
+        "games_played": games_played,
+        "max_score": max_score,
+        "best_time": best_time,
+        "history": history
+    }), 200
+
+@user_routes.route('/history', methods=['POST'])
+def add_history():
+    data = request.json
+    username = data.get("username")
+    category = data.get("category", "Unknown") 
+    score = data.get("score")
+    time = data.get("time")
+    
+    if not username or score is None or not time:
+        return jsonify({"error": "Username, score, and time are required"}), 400
+    
+    # Convert score to integer if it's a string
+    try:
+        score = int(score)
+    except (ValueError, TypeError):
+        return jsonify({"error": "Score must be a valid number"}), 400
+    
+    # Create history record
+    history_record = {
+        "category": category,
+        "score": score,
+        "time": time,
+        "date": datetime.now()
+    }
+    
+    # Update user's history
+    result = users_collection.update_one(
+        {"username": username},
+        {"$push": {"game_history": history_record}}
+    )
+    
+    if result.modified_count == 1:
+        return jsonify({"message": "History added successfully"}), 200
+    else:
+        return jsonify({"error": "Failed to add history"}), 500
